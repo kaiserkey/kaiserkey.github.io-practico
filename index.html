@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fotasa</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Padyakke+Expanded+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tilt+Prism&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Padyakke+Expanded+One&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Padyakke+Expanded+One&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Tilt+Prism&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Padyakke+Expanded+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tilt+Prism&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            font-family: "Roboto", sans-serif;
+            font-family: "Montserrat", sans-serif;
+            ;
+            cursor: default;
+        }
+
+        :root {
+            --height__header: 15vh;
+            --height__new: 20vh;
+            --height__contentPrimary: calc(140vh - var(--height__header) - var(--height__footer));
+            --height__footer: 5vh;
+            --color__1: hsl(0, 0%, 80%);
+            --color__2: hsl(0, 0%, 92%);
+            --borderRadius__20px: 20px;
+            --scrollbar__display: none;
+            --width__item: 25%;
+            --width__sliderBox: 0%;
+        }
+
+        /* @media screen and (min-width: 1024px) {
+        } */
+
+        /* ::-webkit-scrollbar {
+            display: (var(--scrollbar__display));
+        } */
+
+        input[type="text"] {
+            outline: none;
+        }
+
+        body {
+            width: 100%;
+            height: auto;
+            position: relative;
+            z-index: 4;
+        }
+
+        header {
+            width: 100%;
+            height: var(--height__header);
+            position: fixed;
+            top: 0;
+            display: grid;
+            grid-template-columns: 20% 50% 30%;
+            background-color: var(--color__2);
+            box-shadow: 0 10px 3px 3px var(--color__2);
+            z-index: 5;
+        }
+
+        #header__name {
+            grid-column: 1/2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #header__name p {
+            font-size: 150%;
+            font-weight: 600;
+            font-family: "Padyakke Expanded One", serif;
+            display: flex;
+            justify-content: baseline;
+            align-items: end;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #header__name span {
+            font-size: 150%;
+            font-family: "Tilt Prism", sans-serif;
+            cursor: pointer;
+        }
+
+        #header__search {
+            grid-column: 2/3;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+        }
+
+        #search__boxSearch {
+            width: 90%;
+            height: 40%;
+            display: grid;
+            grid-template-columns: 8% 84% 8%;
+            border: 1px solid var(--color__2);
+            border-radius: var(--borderRadius__20px);
+            transition: all 0.2s;
+        }
+
+        #search__boxSearch:hover {
+            border: 1px solid var(--color__1);
+        }
+
+        #boxSearch__boxGlass {
+            grid-column: 1/2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: var(--borderRadius__20px) 0 0 var(--borderRadius__20px);
+        }
+
+        #boxSearch__boxInput {
+            grid-column: 2/3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #boxSearch__boxInput input {
+            width: 100%;
+            height: 70%;
+            font-size: 100%;
+            letter-spacing: 0.5px;
+            background-color: transparent;
+            border-bottom: 1px solid var(--color__1);
+            padding-bottom: 0;
+            cursor: text;
+            transition: all 0.1s;
+        }
+
+        #search__boxSearch:hover #boxSearch__boxInput input {
+            border-bottom: 1px solid transparent;
+        }
+
+        #boxSearch__boxInput input::placeholder {
+            font-size: 90%;
+            letter-spacing: 0;
+            transition: all 0.1s;
+        }
+
+        #boxSearch__boxInput input:hover::placeholder {
+            letter-spacing: 0.1px;
+        }
+
+        #boxSearch__boxClose {
+            grid-column: 3/4;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0 var(--borderRadius__20px) var(--borderRadius__20px) 0;
+        }
+
+        #boxSearch__boxClose i {
+            cursor: pointer;
+            transition: all 0.1s;
+        }
+
+        #boxSearch__boxClose i:hover {
+            color: red;
+        }
+
+        #header__user {
+            grid-column: 3/4;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        button[id^="user__btn"] {
+            width: 40%;
+            height: 50%;
+            font-size: 90%;
+            letter-spacing: 1px;
+            background-color: var(--color__1);
+            box-shadow: 0 0 1px 1px var(--color__1);
+            border-radius: var(--borderRadius__20px);
+            cursor: pointer;
+            transition: box-shadow 200ms, font-size 100ms, letter-spacing 100ms;
+        }
+
+        button[id^="user__btn"]:hover {
+            font-size: 90.5%;
+            letter-spacing: 1.1px;
+            box-shadow: 0 0 4px 1px var(--color__1);
+        }
+
+        #contentPrimary {
+            width: 100%;
+            height: var(--height__contentPrimary);
+            position: absolute;
+            top: var(--height__header);
+            display: grid;
+            grid-template-rows: 25% 75%;
+        }
+
+        #contentHighlight__box {
+            grid-row: 1/2;
+            display: grid;
+            grid-template-rows: 30% 70%;
+        }
+
+        #contentHighlight__title {
+            grid-row: 1/2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            font-size: 100%;
+        }
+
+        #contentHighlight__body {
+            grid-row: 2/3;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        #user__getIntoBox {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            background-color: var(--color__1);
+            filter: opacity(90%);
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #user_logInBox {
+            width: 80%;
+            height: 90%;
+            background-color: var(--color__2);
+        }
+
+        .sliderBox {
+            display: flex;
+            width: var(--width__sliderBox);
+            height: 100%;
+            margin-left: -100%;
+        }
+
+        .sliderBox__section {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .sliderBox__imgBox {
+            aspect-ratio: 1/1;
+            height: 90%;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: var(--color__1);
+            border: 2px solid transparent;
+            box-shadow: 0 0 4px 3px transparent;
+            filter: opacity(95%);
+            transition: all 0.5s;
+        }
+
+        .sliderBox__imgBox:hover {
+            border: 2px solid var(--color__1);
+            box-shadow: 0 0 4px 3px var(--color__1);
+            filter: opacity(100%);
+        }
+
+        img[class^="sliderBox__img"] {
+            width: 100%;
+            height: 100%;
+            transform: scale(1);
+            filter: opacity(95%);
+            cursor: pointer;
+            object-fit: cover;
+            transition: transform 0.5s ease, filter 0.1s;
+        }
+
+        img[class^="sliderBox__img"]:hover {
+            transform: scale(1.15);
+            filter: opacity(100%);
+        }
+
+        .sliderBox__btn {
+            width: 30px;
+            height: 100%;
+            font-size: 150%;
+            position: absolute;
+            top: 50%;
+            color: var(--color__1);
+            font-family: monospace;
+            background-color: var(--color__2);
+            transform: translateY(-50%);
+            border-radius: var(--borderRadius__20px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .sliderBox__btn:hover {
+            background-color: var(--color__1);
+            color: var(--color__2);
+            font-size: 160%;
+        }
+
+        .sliderBox__btn--left {
+            left: 8px;
+        }
+
+        .sliderBox__btn--right {
+            right: 8px;
+        }
+
+        #contentCommunity__box {
+            grid-row: 2/3;
+            display: grid;
+            grid-template-rows: 15% 85%;
+        }
+
+        #contentCommunity__title {
+            grid-row: 1/2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            font-size: 100%;
+        }
+
+        #contentCommunity__title a {
+            cursor: pointer;
+        }
+
+        #contentCommunity__body {
+            grid-row: 2/3;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .communityBox {
+            width: 15%;
+            height: 35%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img[class^="community__img"] {
+            width: 90%;
+            height: 100%;
+            position: absolute;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .community__img1 {
+            filter: blur(0px);
+            cursor: pointer;
+            transition: all 300ms ease-out;
+            z-index: 3;
+        }
+
+        .communityBox:hover>.community__img1 {
+            width: 85%;
+            height: 90%;
+            filter: blur(3px);
+        }
+
+        .community__img2 {
+            cursor: pointer;
+            transition: all 100ms;
+            z-index: 2;
+        }
+
+        .community__imgText {
+            width: auto;
+            height: auto;
+            font-size: 150%;
+            font-weight: 600;
+            position: absolute;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            z-index: 6;
+            object-fit: cover;
+            transition: all 295ms;
+        }
+
+        .community__imgText:hover {
+            display: flex;
+        }
+
+        .community__img1:hover~.community__imgText {
+            display: flex;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        #container__footer {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: calc(100vh - var(--height__footer));
+            background-color: black;
+            filter: opacity(95%);
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div[id^="footerInf__box"] {
+            width: 50%;
+            height: 90%;
+            border: 2px solid white;
+            border-radius: 10px;
+            background-color: whitesmoke;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        p[id^="footerInf__title"] {
+            width: 100%;
+            height: 15%;
+            font-size: 200%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        p[id^="footerInf__text"] {
+            width: 100%;
+            height: 75%;
+            /* background-color: green; */
+            overflow: scroll;
+            text-align: justify;
+            padding-left: 20px;
+
+        }
+
+        p[id^="footerInf__text"]::-webkit-scrollbar {
+            display: (var(--scrollbar__display));
+        }
+
+        #footerInf__arrow {
+            width: 100%;
+            height: 10%;
+            display: flex;
+            justify-content: center;
+            padding-top: 30px;
+            background-color: green;
+        }
+
+
+        .container {
+            position: relative;
+            top: calc(var(--height__header) + var(--height__contentPrimary));
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .item {
+            width: var(--width__item);
+            height: 30vh;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .itemBox {
+            width: 96%;
+            height: 96%;
+            border: 1px solid black;
+            border-radius: 5px;
+            border: 4px solid var(--color__1);
+            overflow: hidden;
+            object-fit: cover;
+            position: relative;
+        }
+
+        .itemBox:hover {
+            width: 97%;
+            height: 98%;
+            border: 4px solid var(--color__1);
+        }
+
+        .itemBox img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+
+        }
+
+
+
+
+
+
+        footer {
+            width: 100%;
+            height: var(--height__footer);
+            position: fixed;
+            bottom: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: var(--color__1);
+            z-index: 5;
+        }
+
+        div[id^="footer_box"] {
+            width: 10%;
+            height: 100%;
+            margin: 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #footer_boxFAQ {
+            width: 3%;
+        }
+
+        #footer_boxTerms {
+            width: 15%;
+        }
+
+        a[id^="footer_link"] {
+            color: hsl(0, 0%, 52%);
+            cursor: pointer;
+            font-size: 80%;
+        }
+
+        a[id^="footer_link"]:hover {
+            color: hsl(233, 100%, 50%);
+            font-size: 81%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <header>
+        <div id="header__name">
+            <p>F<span>o</span>tasa</p>
+        </div>
+        <div id="header__search">
+            <div id="search__boxSearch">
+                <div id="boxSearch__boxGlass">
+                    <i class='bx bx-search bx-sm'></i>
+                </div>
+                <div id="boxSearch__boxInput">
+                    <input type="text" autocomplete="off" placeholder="  Busca por creador, etiqueta, comunidades, etc">
+                </div>
+                <div id="boxSearch__boxClose">
+                    <i class='bx bx-x-circle bx-sm'></i>
+                </div>
+            </div>
+        </div>
+        <div id="header__user">
+            <button id="user__btnLogin">Iniciar sesión</button>
+            <button id="user__btnSignin">Crear usuario</button>
+        </div>
+    </header>
+
+    <!-- <div id="user__getIntoBox">
+        <div id="user_logInBox"></div>
+    </div> -->
+
+    <div id="contentPrimary">
+        <section id="contentHighlight__box">
+            <p id="contentHighlight__title">
+                ¡Explora lo más destacado de&#160<span></span>!
+            </p>
+            <div id="contentHighlight__body">
+                <div class="sliderBox" id="sliderBox"></div>
+                <div class="sliderBox__btn sliderBox__btn--right" id="btn-right">&#62</div>
+                <div class="sliderBox__btn sliderBox__btn--left" id="btn-left">&#60</div>
+            </div>
+        </section>
+
+        <section id="contentCommunity__box">
+            <p id="contentCommunity__title">
+                ¡Explora todas las&nbsp<a href="#">comunidades</a>!
+            </p>
+            <div id="contentCommunity__body"></div>
+        </section>
+    </div>
+    <div class="container" id="container">
+    </div>
+
+
+    <!-- <div id="container__footer">
+        <div id="footerInf__boxAbout">
+            <p id="footerInf__titleAbout">Acerca de Fotasa</p>
+            <p id="footerInf__textAbout">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, rerum! Obcaecati dignissimos sint
+                eveniet impedit iste adipisci? Reiciendis similique eligendi obcaecati est assumenda molestias iste quia
+                facilis consectetur ratione? Optio iure aliquam eos tempora obcaecati, similique repellat porro corporis
+                autem dignissimos minus facilis molestias amet beatae totam eaque nisi error vero quasi quia, impedit
+                itaque. Fugiat provident sint animi labore sunt alias numquam earum eveniet rem ut consequuntur
+                voluptatum, ratione iste ea incidunt, placeat similique error. Perferendis esse maxime modi eius odit
+                vel obcaecati repellendus! Temporibus, neque. <br><br>
+                Tenetur esse fuga aspernatur consequuntur voluptatibus
+                doloribus repudiandae, cupiditate unde nobis commodi consequatur odio laborum! Quo, praesentium! Iusto,
+                perspiciatis? Sit provident necessitatibus id blanditiis praesentium aperiam nam explicabo vel cumque
+                ex. Quis molestiae tempore commodi eius magnam laboriosam distinctio aspernatur, iste in numquam veniam
+                consectetur consequuntur mollitia quae. Aut numquam illo ullam molestias commodi voluptates quia non
+                tenetur eveniet voluptatum. Voluptatem numquam reiciendis iusto rem, ab veniam, magnam distinctio dicta,
+                accusamus asperiores ex. Quo ipsa eaque explicabo, odit dolorem suscipit velit voluptatum quas nobis
+                quasi beatae accusamus blanditiis, quaerat esse iure porro molestiae ducimus. Corrupti minus hic
+                delectus similique soluta, cum et beatae ratione minima, earum, voluptate nemo eos quam eligendi facere
+                at saepe numquam nobis alias optio veniam quaerat culpa veritatis. Numquam vero repellendus, molestias
+                ipsum quas inventore repudiandae fugiat amet, odit facilis distinctio dolorem mollitia asperiores dolor.
+                Non reprehenderit quisquam culpa harum natus voluptate alias dolores sequi dicta! Maiores, eius
+                incidunt. <br><br>
+                Voluptatibus nostrum excepturi nisi laboriosam exercitationem consequuntur minima aliquam
+                aliquid eum nesciunt dolor debitis, illum dolorem neque dignissimos numquam quidem corporis facilis
+                laborum et repellendus. Eum repellat inventore recusandae perferendis consequuntur, iure tempora.
+                Voluptas earum et, inventore modi fugit id expedita nihil, molestiae dolorum voluptatibus perferendis
+                fugiat! Quasi delectus reiciendis sed velit necessitatibus perspiciatis, vero assumenda qui ad accusamus
+                minima nisi odit, consectetur cumque tempore inventore eligendi optio corporis impedit recusandae
+                adipisci rem! Minus possimus nam necessitatibus eveniet nisi voluptatibus. Qui, iusto exercitationem
+                soluta libero dolorum modi incidunt nisi aspernatur itaque tempora sed accusamus voluptatibus vitae
+                perspiciatis, error pariatur repellat necessitatibus sint quas autem. Aspernatur qui ducimus, optio
+                incidunt cum nesciunt! Laudantium facere voluptate distinctio, voluptatibus maxime totam quas! Impedit
+                eos sequi dolorem animi pariatur, officiis adipisci ducimus dicta rerum cum dolores illum excepturi
+                itaque explicabo temporibus vitae tenetur numquam corrupti maxime. Architecto sunt, veritatis ad
+                exercitationem adipisci autem culpa praesentium optio fuga id commodi suscipit dolores quibusdam
+                obcaecati quo!</p>
+            <div id="footerInf__arrow">&#8744</div>
+        </div>
+        <div id="footerInf__faq"></div>
+        <div id="footerInf__terms"></div>
+        <div id="footerInf__policy"></div>
+    </div> -->
+
+
+
+    <footer>
+        <div id="footer_boxAbout">
+            <a href="#" id="footer_linkAbout">Acerca de Fotasa</a>
+        </div>
+        <div id="footer_boxFAQ">
+            <a href="#" id="footer_linkFAQ">FAQ</a>
+        </div>
+        <div id="footer_boxPolicy">
+            <a href="#" id="footer_linkPolicy">Política de privacidad</a>
+        </div>
+        <div id="footer_boxTerms">
+            <a href="#" id="footer_linkTerms">Términos y condiciones de uso</a>
+        </div>
+        <div id="footer_boxContact">
+            <a href="#" id="footer_linkContact">¡Contáctanos!</a>
+        </div>
+    </footer>
+    <script>
+
+
+
+        // BLOQUE QUE MODIFICA EL "#search__boxSearch" AL HACER :hover EN EL INPUT TEXT DE BÚSQUEDA, QUE SE PERCIBE COMO UNA PEQUEÑA LÍNEA EN LA LUPA DEL SVG
+        const search__boxSearch = document.getElementById("search__boxSearch");
+        const boxSearch__svgGlass = document.querySelector("#boxSearch__boxGlass i");
+        search__boxSearch.addEventListener("mouseenter", function () {
+            boxSearch__svgGlass.className = 'bx bx-search-alt bx-sm';
+        });
+        search__boxSearch.addEventListener("mouseleave", function () {
+            boxSearch__svgGlass.className = 'bx bx-search bx-sm';
+        });
+
+        //BLOQUE PARA MOSTRAR "#boxSearch__boxClose" SI HAY TEXTO EN EL INPUT TEXT DE BÚSQUEDA
+        const boxSearch__textInput = document.querySelector("#boxSearch__boxInput input");
+        boxSearch__textInput.addEventListener("input", function (e) {
+            if (boxSearch__textInput.value.trim() !== "") {
+                boxSearch__boxClose.style.display = "flex";
+            } else {
+                boxSearch__boxClose.style.display = "none";
+            };
+        });
+
+        // BLOQUE QUE PONE FOCUS AL HACER :hover SOBRE INPUT TEXT DE BÚSQUEDA
+        focusBlur(boxSearch__textInput);
+
+        // BLOQUE PARA ELIMINAR EL TEXTO ESCRITO EN EL INPUT TEXT DE BÚSQUEDA AL DAR CLICK SOBRE "#boxSearch__boxClose"
+        const boxSearch__boxClose = document.getElementById("boxSearch__boxClose");
+        const boxSearch__svgClose = document.querySelector("#boxSearch__boxClose i");
+        boxSearch__svgClose.title = "Borrar búsqueda";
+        boxSearch__svgClose.addEventListener("click", function () {
+            boxSearch__textInput.value = "";
+            boxSearch__boxClose.style.display = "none";
+        });
+
+        // BLOQUE PARA COLOCAR DE FORMA AUTOMÁTICA EL MES EN EL "span" DE "#contentHighlight__title" AL HABE CAMBIO DE MES
+        const monthArray = [" enero", " febrero", " marzo", " abril", " mayo", " junio", " julio", " agosto", " septiembre", " octubre", " noviembre", " diciembre"];
+        const contentHighlight__month = document.querySelector("#contentHighlight__title span");
+        contentHighlight__month.textContent = monthArray[(new Date().getMonth())];
+
+        // ARRAY USADO EN EL SLIDER QUE MUESTRA EL CONTENIDO DE LO MÁS DESTACADO DEL MES EN "#contentHighlight__body"
+        const sliderBox__array = [
+            "#Gatos", "https://media.istockphoto.com/id/1483360378/es/foto/lindo-gato-atigrado-joven-en-un-jard%C3%ADn-mirando-a-una-abeja.jpg?s=612x612&w=0&k=20&c=4oiHRkdXuiWY4091Q15acprm8Y546zD5T7EqBSvqbfc=",
+            "#Argentina", "https://media.istockphoto.com/id/1398457995/es/vector/bandera-de-fondo-argentina.jpg?s=612x612&w=0&k=20&c=lks5qOvW3xbJdw1gPwpoNH-8nbeAr0qs_uy1M5fFaiE=",
+            "#Comida", "https://media.istockphoto.com/id/1496941161/es/foto/s%C3%A1ndwich-de-chorizo-a-la-plancha.jpg?s=612x612&w=0&k=20&c=v38YrfpuaYJxby3dgX5AMOuC2wun7u5SIPqubvYbWAI=",
+            "#Pedrito Pérez", "https://media.istockphoto.com/id/1452241716/es/foto/retrato-de-un-hombre-adulto-medio-al-aire-libre.jpg?s=1024x1024&w=is&k=20&c=nPr6qbAUT2cE-CqG9wDsDQx2XtzV9daSfI880d1DvJ0=",
+            "#Autos", "https://media.istockphoto.com/id/1459174334/es/foto/ford-focus-rs.jpg?s=612x612&w=0&k=20&c=TOs_qnxzsZVn3-7ur0JEdvkvJwu4VsZhprUsjR-XFWk=",
+            "#Viajes", "https://media.istockphoto.com/id/1583161497/es/foto/hombre-viajero-de-pie-con-el-amanecer-sobre-la-monta%C3%B1a-kirkjufell-en-verano-en-islandia.jpg?s=612x612&w=0&k=20&c=bTKQ0q44vaFTnGkoBoHxKKaqsde_fFuwJC0NeCv-LT0=",
+            "#Moda", "https://media.istockphoto.com/id/1742405436/es/foto/mujer-joven-frente-a-una-forma-de-luz-circular.jpg?s=612x612&w=0&k=20&c=3PCsqG9ycfh-gcWqL5_FFQa2kZW0x3x8qJOzXPKPy80=",
+            "#Basketball", "https://media.istockphoto.com/id/1449021054/es/foto/joven-haciendo-girar-una-pelota-de-baloncesto-en-un-campo.jpg?s=612x612&w=0&k=20&c=wOKpKtxSuUD7EpGJNVQOlqoOizZnA_RZdD9VAhnBxJ4=",
+            "#Robótica", "https://media.istockphoto.com/id/1700288868/es/foto/ingeniera-de-estudiantes-asi%C3%A1ticos-ensamblando-kits-de-rob%C3%B3tica-aprendiendo-control-mec%C3%A1nico.jpg?s=612x612&w=0&k=20&c=JaINkYCZEumvUdnIwDRfDgPzoI5_d1lrj2722_Uqh_I=",
+            "#Astronomía", "https://media.istockphoto.com/id/1484278497/es/foto/paisaje-con-v%C3%ADa-l%C3%A1ctea-y-silueta-de-un-hombre-excursionista.jpg?s=612x612&w=0&k=20&c=mh-GJMGRWncNF69CaCmz0dii652r93TSrq90BoLWkSE=",
+            "#Bosques", "https://media.istockphoto.com/id/1466653322/es/foto/mujer-de-primer-plano-plantando-un-abeto-joven-en-el-bosque-dej%C3%A1ndolo-en-el-suelo.jpg?s=612x612&w=0&k=20&c=seY-QgFGnR6JxQ599kl-8nux5Z9xnyvRyLsM05IfwLA=",
+            "#Conciertos", "https://media.istockphoto.com/id/1498452992/es/foto/chica-disfrutando-bailando-en-festival-de-m%C3%BAsica.jpg?s=612x612&w=0&k=20&c=Aw8ykStL0ku4XHoA4gCG1sq5wD4Cu3iLzcdB3SCYTuo=",
+            "#Programación", "https://media.istockphoto.com/id/1705601319/es/foto/j%C3%B3venes-desarrolladoras-de-software-asi%C3%A1ticas-que-usan-computadoras-para-escribir-c%C3%B3digo.jpg?s=612x612&w=0&k=20&c=15tH0arqjJbVySFyOeR6SkhHJ91-bPkQ2NnMjxZNcK4=",
+            "#Auroras boreales", "https://media.istockphoto.com/id/1387126916/es/foto/magic-luces-de.jpg?s=612x612&w=0&k=20&c=qRneXafDB5Rl8aJmv8X7voZikvBoQaUesKcy3EbmE00=",
+            "#Cumpleaños", "https://media.istockphoto.com/id/1502843454/es/foto/chica-de-cumplea%C3%B1os.jpg?s=612x612&w=0&k=20&c=pS0RH9AaYuCSJIhUm0etaYNPMxEjNKSmAM_yllBVPbo=",
+            "#Motocicletas", "https://media.istockphoto.com/id/1457596651/es/foto/viajar-en-motocicleta-por-las-carreteras.jpg?s=612x612&w=0&k=20&c=HAv5BYI4zjKrSGVgYRPw8F75ZyBlSI7Rv38tTeGQ2pw=",
+            "#Invierno", "https://media.istockphoto.com/id/1438178298/es/foto/hermosa-vista-del-amanecer-por-la-ma%C3%B1ana-en-el-camino-nevado-del-pa%C3%ADs.jpg?s=612x612&w=0&k=20&c=aXuagI2F2FN2bx3A3sF2Cv6ouyqQKkPuV8GpGMKJ3w4=",
+            "#Otoño", "https://media.istockphoto.com/id/1437339341/es/foto/paseo-del-poeta-en-central-park-en-colores-de-follaje-oto%C3%B1al-manhattan-nueva-york.jpg?s=612x612&w=0&k=20&c=M1sNfErtNwORGwWuyMrKI3u1jFdPnkccQ6Guj45JI9M=",
+            "#Espacio", "https://media.istockphoto.com/id/1371752135/es/foto/telescopio-espacial-hubble-en-el-espacio-profundo-observatorio-espacial-orbital-investigaci%C3%B3n.jpg?s=612x612&w=0&k=20&c=c7wy6v7dHqcHU-wSvVIUn7Fh0fn8OSrCdX3xxomr1q8=",
+            "#Vida", "https://media.istockphoto.com/id/1149146449/es/foto/millennial-cheques-finanzas-en-smart-phone.jpg?s=612x612&w=0&k=20&c=0vFc8BIzdyxu78ltyDS1Jbx7vso9IZtzhvPkDyW5AKk=",
+            "#Ingeniería", "https://media.istockphoto.com/id/1154085284/es/foto/vista-a%C3%A9rea-la-universidad-de-mu%C4%9Fla-y-la-intersecci%C3%B3n-de-carreteras-hospitalarias-turqu%C3%ADa.jpg?s=612x612&w=0&k=20&c=bGAIgSIgTp6GFTFUcV60Oe9CaDF3iUpnsCWa3ykMIPA=",
+            "#Arquitectura", "https://media.istockphoto.com/id/1477456541/es/foto/edificio-moderno-en-blanco-y-negro.jpg?s=612x612&w=0&k=20&c=SkDV1wmjNB5Gao0yP37FSSvHfK36E0uZy5NFZpFZVmo=",
+            "#Historia", "https://media.istockphoto.com/id/1454338439/es/foto/vista-a%C3%A9rea-de-la-antigua-ciudad-de-%C3%A9feso-antigua-ciudad-romana-el-destino-tur%C3%ADstico-m%C3%A1s.jpg?s=612x612&w=0&k=20&c=XBPuyPbPJYRoqbz--oKcyb83G8hIsXPwyZCzpmIjzzI=",
+            "#Azul", "https://media.istockphoto.com/id/1486754158/es/vector/dise%C3%B1o-abstracto-de-fondo-de-malla-degradada-azul-borroso-para-su-presentaci%C3%B3n-fondo-de.jpg?s=612x612&w=0&k=20&c=cnr5uFzkM0LCONayeBdiR3oNr8guNrAPHwZMhUzgyLg=",
+            "#Física", "https://media.istockphoto.com/id/888421376/es/foto/fondo-abstracto-zarcillos-rizado.jpg?s=612x612&w=0&k=20&c=zn3XC2wt7pxKUSFsmhjSpf4UZf3H5XGvysAcAcicgLM=",
+            "#Mate", "https://media.istockphoto.com/id/1477624711/es/foto/dos-amigas-elaborando-y-bebiendo-yerba-mate-con-un-termo-rojo-en-el-campo-al-atardecer.jpg?s=612x612&w=0&k=20&c=APAeKvkHbzvQDZwgsXyIQM5RV7bwbpKai3HzUWpBvLc=",
+            "#China", "https://media.istockphoto.com/id/1456756745/es/foto/paisaje-y-pastoral.jpg?s=612x612&w=0&k=20&c=woS_l-rlPMLbjWu8DOKjjQuxRWAIJr6N9uxorAnxZYA=",
+            "#Ciclismo", "https://media.istockphoto.com/id/1430639978/es/foto/comenzando-la-bicicleta-de-monta%C3%B1a-cuesta-abajo.jpg?s=612x612&w=0&k=20&c=jZKRMmX-fPLNk2r4V8My0-mAH3XYWqNejPkfhaU2G6c=",
+            "#Pokémon", "https://media.istockphoto.com/id/1085509316/es/foto/brote-de-pikachu-2018.jpg?s=612x612&w=0&k=20&c=FWHn_4muF0yFlKXtMe8OEVPEvoLLYZ6sXrOtrCrYclY=",
+            "#Lectura", "https://media.istockphoto.com/id/1633541037/es/foto/lectura-de-vacaciones.jpg?s=612x612&w=0&k=20&c=9U6yXw1c3yydJUDVMlBxkiSSU_EQrJYAzbwD4lw8X3g=",
+        ];
+
+        // CONSTANTES DE LOS ANCHOS DE PANTALLA PARA LA EJECUCIÓN DE CÓDIGO JAVASCRIPT EN EL DISEÑO RESPONSIVE
+
+
+        let sectionsQuantity = 4;
+        let imagesProSection = 6;
+
+        const rootSectionQuantity = document.documentElement.style.setProperty("--width__sliderBox", `${sectionsQuantity}` * 100 + "%");
+        for (let i = 0; i < sectionsQuantity; i++) {
+            const section = sliderBox.appendChild(document.createElement("div"));
+            section.classList.add("sliderBox__section");
+            for (let j = 0; j < imagesProSection; j++) {
+                const imgBox = section.appendChild(document.createElement("div"));
+                imgBox.classList.add("sliderBox__imgBox");
+                const img = imgBox.appendChild(document.createElement("img"));
+                img.classList.add("sliderBox__img");
+                // BLOQUE QUE COLOCA EL src Y EL title POR CADA UNA DE LAS IMAGENES DE "#contentHighlight__body" DE LO MÁS DESTACADO DEL MES
+                const sliderBox__img = document.getElementsByClassName("sliderBox__img");
+                for (let k = 0; k < sliderBox__img.length; k++) {
+                    sliderBox__img[k].title = sliderBox__array[k * 2];
+                    sliderBox__img[k].src = sliderBox__array[(k * 2) + 1];
+                };
+            };
+        };
+
+
+
+
+
+
+
+
+        // BLOQUE PARA CREAR EL SLIDER DE LO MÁS DESTACADO DEL MES
+        const sliderBox__section = document.querySelectorAll(".sliderBox__section");
+        const sliderBox__sectionFinal = sliderBox__section[sliderBox__section.length - 1];
+        const btnLeft = document.querySelector("#btn-left");
+        const btnRight = document.querySelector("#btn-right");
+
+        sliderBox.insertAdjacentElement("afterbegin", sliderBox__sectionFinal);
+        function next() {
+            const sliderBox__sectionInicial = document.querySelectorAll(".sliderBox__section")[0];
+            sliderBox.style.marginLeft = "-200%";
+            sliderBox.style.transition = "all 500ms";
+            setTimeout(function () {
+                sliderBox.style.transition = "none";
+                sliderBox.insertAdjacentElement("beforeend", sliderBox__sectionInicial);
+                sliderBox.style.marginLeft = "-100%";
+            }, 500);
+        };
+        btnRight.addEventListener("click", function () {
+            next();
+        });
+        function prev() {
+            const sliderBox__section = document.querySelectorAll(".sliderBox__section");
+            const sliderBox__sectionFinal = sliderBox__section[sliderBox__section.length - 1];
+            sliderBox.style.marginLeft = "0%";
+            sliderBox.style.transition = "all 500ms";
+            setTimeout(function () {
+                sliderBox.style.transition = "none";
+                sliderBox.insertAdjacentElement("afterbegin", sliderBox__sectionFinal);
+                sliderBox.style.marginLeft = "-100%";
+            }, 500);
+        };
+        btnLeft.addEventListener("click", function () {
+            prev();
+        });
+
+        // ARRAY USADO EN EL CONTENIDO DE LAS COMUNIDADES EN "#contentCommunity__body"
+        const community__imgArray = [
+            "Todo sobre nosotros", "https://media.istockphoto.com/id/1445225052/es/foto/pu%C3%B1os-cerrados-sosteniendo-la-camiseta-de-la-selecci%C3%B3n-argentina-de-f%C3%BAtbol.jpg?s=1024x1024&w=is&k=20&c=-8LH9H5JP9zAiOuGoeQoYLlYiS_NvaEASrqqaI2w2Kc=",
+            "Star wars universe", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSupniqG7qHZRcjSSrfHyJRe6Kdj1_RVcTKlQ&s",
+            "Ecoturismo suramérica", "https://media.istockphoto.com/id/1352725666/es/foto/senderismo-familiar-en-monta%C3%B1as-viajes-aventura-vacaciones-grupo-excursionistas-pareja-con.jpg?s=612x612&w=0&k=20&c=fsfL8K6J4gcD3Vr7aM7Z7Z0YGyFDB30yqwMwvsME_JQ=",
+            "Batman true fans", "https://media.istockphoto.com/id/625877394/es/foto/r%C3%A9plica-del-dispositivo-bat-signal-en-la-convenci%C3%B3n-de-cosplay-de-yorkshire.jpg?s=612x612&w=0&k=20&c=QryrBSjmEabycsFHaQm06Wq7Is9lTNRV7A2LP3afZZM=",
+            "Yo amo la arqueología", "https://media.istockphoto.com/id/1203879005/es/foto/pinturas-a-mano-en-la-cueva-de-las-manos-en-la-provincia-de-santa-cruz-patagonia-argentina.jpg?s=612x612&w=0&k=20&c=ws4PfD9-BPpG6VlDvX-uXMru5uyzplJrcTcmvsa-J4I=",
+            "Conociendo el 'Serengueti'", "https://media.istockphoto.com/id/1403952272/es/foto/hermoso-paisaje-con-%C3%A1rbol-de-acacia-en-la-sabana-africana-y-cebra-en-el-fondo-del-kilimanjaro.jpg?s=612x612&w=0&k=20&c=sk2Gi67eaC3IOFCG7VAlOPLCZQT1JgNAK9dW5i8Z_08=",
+            "Mar profundo", "https://media.istockphoto.com/id/1325337801/es/foto/buzo-nadando-en-una-cueva-submarina-hacia-la-luz-en-la-superficie-del-oc%C3%A9ano.jpg?s=612x612&w=0&k=20&c=WB5KKdBSV1I8XT3gT_q7gRxs275sYHOXJxZ6I5jWwsg=",
+            "Paisajes de Noruega", "https://media.istockphoto.com/id/1450054416/es/foto/mujer-caminando-en-el-fondo-de-tre-cime-di-lavaredo-en-invierno.jpg?s=612x612&w=0&k=20&c=fNnxYibdydsDQQ6TE1xunVKMEMx9-xnC1rg9iuXJe-U=",
+            "Apasionados por el fútbol", "https://media.istockphoto.com/id/148053733/es/foto/renderizado-3d-de-pelota-de-f%C3%BAtbol-mapa-mundial.jpg?s=612x612&w=0&k=20&c=Nm46FioozRrX83ZA-Ae45x2TcNFWn90d1J4J5uREyAI=",
+            "Amantes de la cocina molecular", "https://media.istockphoto.com/id/1483157338/es/foto/verter-l%C3%ADquido-en-la-harina-para-hacer-vapor-de-hielo-seco.jpg?s=612x612&w=0&k=20&c=o9gKv7q1RqE1-Nph_IdmzeQRpH8DVZC8vFWTc__vcRw=",
+            "Coffee lovers", "https://media.istockphoto.com/id/1480620579/es/foto/caf%C3%A9-cosechado-en-manos-de-un-hombre.jpg?s=612x612&w=0&k=20&c=6DtWA3n3GM4wZJxonUBSTkiYI50rpHEyUGi4Zpn1s58=",
+            "Historia universal", "https://media.istockphoto.com/id/168258395/es/foto/mundo-antiguo-mapa-de-europa.jpg?s=612x612&w=0&k=20&c=efvRpcpRkOdTHt4omDNG_9i5n4ZePdgxLlTjVmJ0leE=",
+        ];
+
+        // // BLOQUE PARA CREAR UNA CIERTA CANTIDAD DE IMAGENES DE "COMUNIDDES"
+        const contentCommunity__body = document.getElementById("contentCommunity__body");
+        const numCommunities = 12;
+        for (let i = 0; i < numCommunities; i++) {
+            const communityBox = contentCommunity__body.appendChild(document.createElement("div"));
+            communityBox.classList.add("communityBox");
+            const img1 = communityBox.appendChild(document.createElement("img"));
+            img1.classList.add("community__img1");
+            const img2 = communityBox.appendChild(document.createElement("img"));
+            img2.classList.add("community__img2");
+            const imgText = communityBox.appendChild(document.createElement("p"));
+            imgText.classList.add("community__imgText");
+        };
+
+        // BLOQUE QUE COLOCA LAS IMAGENES Y EL TEXTO SOBRE LAS CAJAS DE AS COMUNIDADES EN CADA ".communityBox"
+        const community__img1 = document.getElementsByClassName("community__img1");
+        const community__img2 = document.getElementsByClassName("community__img2");
+        const community__imgText = document.getElementsByClassName("community__imgText");
+        for (let i = 0; i < community__imgText.length; i++) {
+            const titleIndex = i * 2;
+            const srcIndex = titleIndex + 1;
+            community__imgText[i].textContent = community__imgArray[titleIndex];
+            community__img1[i].src = community__imgArray[srcIndex];
+            community__img2[i].src = community__imgArray[srcIndex];
+        };
+
+
+
+
+
+
+
+        // ARRAY USADO PARA ALMACENAR LAS IMAGENES DEL CONTENIDO QUE SE CARGA DINAMICAMENTE AL HACER SCROLL
+        const arrayNameImg = [
+            "Creador 01", "https://media.istockphoto.com/id/1470745452/es/foto/abriendo-la-puerta-a-la-libertad.jpg?s=612x612&w=0&k=20&c=4EVGyjgQN5Of2KpBhG-Lt7sYsH2HXKN1QNpwTMiaPPw=",
+            "Creador 02", "https://media.istockphoto.com/id/1483055684/es/vector/arte-del-metaverso.jpg?s=612x612&w=0&k=20&c=binA6e_t9OUcSZJduoU5a7fkGx6Y0AGzUijWsJPFclk=",
+            "Creador 03", "https://media.istockphoto.com/id/1751231741/es/foto/lindo-cachorro-de-foca-mirando-a-la-c%C3%A1mara-mientras-flota-en-la-superficie-azul-clara-del.jpg?s=612x612&w=0&k=20&c=aFj1Utghh7Bj6Go1s8sPS3QyRYyIUIcc1GvBfD3ZArM=",
+            "Creador 04", "https://media.istockphoto.com/id/2133135123/es/foto/t-l-aerial-view-rows-of-trucks-driving-in-harbor-with-trailers.jpg?s=612x612&w=0&k=20&c=BM3pHSR0gJ4PPBkX52_qp9Dkwp-SUmXHb6FX1vCMxCs=",
+            "Creador 05", "https://media.istockphoto.com/id/1869390184/es/foto/abstract-layered-and-folded-paper-background.jpg?s=612x612&w=0&k=20&c=sZPXSnZg5SN542kr-wwOfmOOpYhBeHcY4x5LIr0_kiQ=",
+            "Creador 06", "https://media.istockphoto.com/id/1965039080/es/foto/vista-a%C3%A9rea-de-la-desembocadura-del-r%C3%ADo-isla-cristina-en-huelva-andaluc%C3%ADa-espa%C3%B1a.jpg?s=612x612&w=0&k=20&c=GTxaMBR9Kw6ejNWVe3aNPD8ulcmEYMBd4fHQb6KH-yg=",
+            "Creador 07", "https://media.istockphoto.com/id/1948463768/es/foto/vista-a%C3%A9rea-del-campamento-a-lo-largo-de-la-playa.jpg?s=612x612&w=0&k=20&c=5UL0-PMSRrzRvs1cNF5LHJ8KU8h3ENq3VFyCYFpdx7I=",
+            "Creador 08", "https://media.istockphoto.com/id/1414801614/es/foto/taquillas-escolares-con-art%C3%ADculos-equipos-y-accesorios-para-la-educaci%C3%B3n-vuelta-al-cole.jpg?s=612x612&w=0&k=20&c=pKk-EZCY_iUAfUzwdfF0rp6YaaLVwTKyx5qMHtg-NQM=",
+            "Creador 09", "https://media.istockphoto.com/id/1365849981/es/foto/vista-de-alto-%C3%A1ngulo-de-las-dunas-texturizadas-del-desierto-al-amanecer.jpg?s=612x612&w=0&k=20&c=Deel0ejewe1okVHFOw371EmUlrNyMBRHRSuBL1r5KDk=",
+            "Creador 10", "https://media.istockphoto.com/id/1503943375/es/foto/ni%C3%B1a-vietnamita-con-vestido-blanco-tradicional-de-ao-dai-con-secado-de-incienso-al-aire-libre.jpg?s=612x612&w=0&k=20&c=32glXLQOmrf-bxeVyK520OF8kD5ZEYMkf1vxJwLAMBo=",
+            "Creador 11", "https://media.istockphoto.com/id/1328325993/es/foto/tomates-tostados-cortados-variados-en-bandeja-de-horneado-con-albahaca-y-romero-macro.jpg?s=612x612&w=0&k=20&c=o5Rv9tIHAlkM0qPB31BvHbAGZd8cVdxEcwIMpeyDDTA=",
+            "Creador 12", "https://media.istockphoto.com/id/1755286679/es/foto/cultivo-de-hongos-en-el-bosque.jpg?s=612x612&w=0&k=20&c=sXlEs2-IoL4I6TzOAlOjG5l2HidT1HxIBZyU5ccYTsU=",
+            "Creador 13", "https://media.istockphoto.com/id/1753059830/es/foto/urban-tr%C3%A1fico.jpg?s=612x612&w=0&k=20&c=tNhY9oEQh4hxsnQxHcYS1kDIWMx_FiNuSXsopcKLi_c=",
+            "Creador 14", "https://media.istockphoto.com/id/1276580714/es/foto/renderizado-en-3d-fondo-minimalista-abstracto-marco-cuadrado-de-luz-de-ne%C3%B3n-azul-rosa-con.jpg?s=612x612&w=0&k=20&c=UNage-g9yIyl12k6lU3FRMRocSsiSU_CVDjRM_Qtp5U=",
+            "Creador 15", "https://media.istockphoto.com/id/1416449650/es/foto/paisaje-del-metaverso.jpg?s=612x612&w=0&k=20&c=HV8L3aWHHgAQAoGhdj_UKmdH3fx-8mCziZ2MNyaFufY=",
+            "Creador 16", "https://media.istockphoto.com/id/1965039080/es/foto/vista-a%C3%A9rea-de-la-desembocadura-del-r%C3%ADo-isla-cristina-en-huelva-andaluc%C3%ADa-espa%C3%B1a.jpg?s=612x612&w=0&k=20&c=GTxaMBR9Kw6ejNWVe3aNPD8ulcmEYMBd4fHQb6KH-yg=",
+            "Creador 17", "https://media.istockphoto.com/id/1328325993/es/foto/tomates-tostados-cortados-variados-en-bandeja-de-horneado-con-albahaca-y-romero-macro.jpg?s=612x612&w=0&k=20&c=o5Rv9tIHAlkM0qPB31BvHbAGZd8cVdxEcwIMpeyDDTA=",
+            "Creador 18", "https://media.istockphoto.com/id/1869390184/es/foto/abstract-layered-and-folded-paper-background.jpg?s=612x612&w=0&k=20&c=sZPXSnZg5SN542kr-wwOfmOOpYhBeHcY4x5LIr0_kiQ=",
+            "Creador 19", "https://media.istockphoto.com/id/1459757171/es/foto/mujer-mirando-pasar-el-metro.jpg?s=612x612&w=0&k=20&c=3UTDxNOffiKVZkLsedGiNB92tSklSv1L2ddvnbURH-o=",
+            "Creador 20", "https://media.istockphoto.com/id/1464561797/es/foto/unidad-procesadora-de-inteligencia-artificial-potente-componente-quantum-ai-en-placa-base-pcb.jpg?s=612x612&w=0&k=20&c=gbS2eMWy6WTrMMZBrRAgAx_UYgrEitK5DrnWbfnM5SE=",
+            "Creador 21", "https://media.istockphoto.com/id/1472507642/es/foto/cgi-planetas-abstractos-que-descienden-a-la-tierra.jpg?s=612x612&w=0&k=20&c=xE2EWDQK3FpmAe2k9QvIpCsoqAmbWd5yKxZaGu7IBw0=",
+            "Creador 22", "https://media.istockphoto.com/id/1470449208/es/foto/vista-a%C3%A9rea-de-un-complejo-residencial-con-casas-arco-iris-en-la-orilla-izquierda-de-kiev.jpg?s=612x612&w=0&k=20&c=bkMEw2U-jZau2pABKQukFj6BsuqPFRIAbrMHuoybwwQ=",
+            "Creador 23", "https://media.istockphoto.com/id/1325124359/es/foto/%C3%A1rbol-vs-tr%C3%A1fico-concepto-de-entorno.jpg?s=612x612&w=0&k=20&c=m0TkFeDCEahQ7C97AuA0BzstTiwD83sgieJ_QDcGEHI=",
+            "Creador 24", "https://media.istockphoto.com/id/1338726771/es/foto/pajas.jpg?s=612x612&w=0&k=20&c=RXpyx7TZW2RriP9ctvb7DZ2Zaq_K2Y6w8r-aA9YqS1s=",
+            "Creador 25", "https://media.istockphoto.com/id/1339185146/es/vector/fondo-de-arco-iris-abstracto-brillante.jpg?s=612x612&w=0&k=20&c=-q7O8qpdWIveNlHqVRBKEs3tIMluMHuZS9gQvjXzW6U=",
+            "Creador 26", "https://media.istockphoto.com/id/1396715400/es/foto/bandera-del-arco-iris-abstracto-mosaico-lgbtqia-mes-del-orgullo-evento-cultura-tri%C3%A1ngulo.jpg?s=612x612&w=0&k=20&c=WFz8GSa2U1BW2NiIWG1BfQWPhczS07e73dC_gM-tpWU=",
+            "Creador 27", "https://media.istockphoto.com/id/1365849981/es/foto/vista-de-alto-%C3%A1ngulo-de-las-dunas-texturizadas-del-desierto-al-amanecer.jpg?s=612x612&w=0&k=20&c=Deel0ejewe1okVHFOw371EmUlrNyMBRHRSuBL1r5KDk=",
+            "Creador 28", "https://media.istockphoto.com/id/1503943375/es/foto/ni%C3%B1a-vietnamita-con-vestido-blanco-tradicional-de-ao-dai-con-secado-de-incienso-al-aire-libre.jpg?s=612x612&w=0&k=20&c=32glXLQOmrf-bxeVyK520OF8kD5ZEYMkf1vxJwLAMBo=",
+            "Creador 29", "https://media.istockphoto.com/id/1328325993/es/foto/tomates-tostados-cortados-variados-en-bandeja-de-horneado-con-albahaca-y-romero-macro.jpg?s=612x612&w=0&k=20&c=o5Rv9tIHAlkM0qPB31BvHbAGZd8cVdxEcwIMpeyDDTA=",
+            "Creador 30", "https://media.istockphoto.com/id/1755286679/es/foto/cultivo-de-hongos-en-el-bosque.jpg?s=612x612&w=0&k=20&c=sXlEs2-IoL4I6TzOAlOjG5l2HidT1HxIBZyU5ccYTsU=",
+            "Creador 31", "https://media.istockphoto.com/id/1753059830/es/foto/urban-tr%C3%A1fico.jpg?s=612x612&w=0&k=20&c=tNhY9oEQh4hxsnQxHcYS1kDIWMx_FiNuSXsopcKLi_c=",
+            "Creador 32", "https://media.istockphoto.com/id/1276580714/es/foto/renderizado-en-3d-fondo-minimalista-abstracto-marco-cuadrado-de-luz-de-ne%C3%B3n-azul-rosa-con.jpg?s=612x612&w=0&k=20&c=UNage-g9yIyl12k6lU3FRMRocSsiSU_CVDjRM_Qtp5U=",
+            "Creador 33", "https://media.istockphoto.com/id/1416449650/es/foto/paisaje-del-metaverso.jpg?s=612x612&w=0&k=20&c=HV8L3aWHHgAQAoGhdj_UKmdH3fx-8mCziZ2MNyaFufY=",
+            "Creador 34", "https://media.istockphoto.com/id/1965039080/es/foto/vista-a%C3%A9rea-de-la-desembocadura-del-r%C3%ADo-isla-cristina-en-huelva-andaluc%C3%ADa-espa%C3%B1a.jpg?s=612x612&w=0&k=20&c=GTxaMBR9Kw6ejNWVe3aNPD8ulcmEYMBd4fHQb6KH-yg=",
+            "Creador 35", "https://media.istockphoto.com/id/1328325993/es/foto/tomates-tostados-cortados-variados-en-bandeja-de-horneado-con-albahaca-y-romero-macro.jpg?s=612x612&w=0&k=20&c=o5Rv9tIHAlkM0qPB31BvHbAGZd8cVdxEcwIMpeyDDTA=",
+            "Creador 36", "https://media.istockphoto.com/id/1869390184/es/foto/abstract-layered-and-folded-paper-background.jpg?s=612x612&w=0&k=20&c=sZPXSnZg5SN542kr-wwOfmOOpYhBeHcY4x5LIr0_kiQ=",
+            "Creador 37", "https://media.istockphoto.com/id/1459757171/es/foto/mujer-mirando-pasar-el-metro.jpg?s=612x612&w=0&k=20&c=3UTDxNOffiKVZkLsedGiNB92tSklSv1L2ddvnbURH-o=",
+            "Creador 38", "https://media.istockphoto.com/id/1464561797/es/foto/unidad-procesadora-de-inteligencia-artificial-potente-componente-quantum-ai-en-placa-base-pcb.jpg?s=612x612&w=0&k=20&c=gbS2eMWy6WTrMMZBrRAgAx_UYgrEitK5DrnWbfnM5SE=",
+            "Creador 39", "https://media.istockphoto.com/id/1472507642/es/foto/cgi-planetas-abstractos-que-descienden-a-la-tierra.jpg?s=612x612&w=0&k=20&c=xE2EWDQK3FpmAe2k9QvIpCsoqAmbWd5yKxZaGu7IBw0=",
+            "Creador 40", "https://media.istockphoto.com/id/1470449208/es/foto/vista-a%C3%A9rea-de-un-complejo-residencial-con-casas-arco-iris-en-la-orilla-izquierda-de-kiev.jpg?s=612x612&w=0&k=20&c=bkMEw2U-jZau2pABKQukFj6BsuqPFRIAbrMHuoybwwQ=",
+            "Creador 41", "https://media.istockphoto.com/id/1325124359/es/foto/%C3%A1rbol-vs-tr%C3%A1fico-concepto-de-entorno.jpg?s=612x612&w=0&k=20&c=m0TkFeDCEahQ7C97AuA0BzstTiwD83sgieJ_QDcGEHI=",
+            "Creador 42", "https://media.istockphoto.com/id/1338726771/es/foto/pajas.jpg?s=612x612&w=0&k=20&c=RXpyx7TZW2RriP9ctvb7DZ2Zaq_K2Y6w8r-aA9YqS1s=",
+            "Creador 43", "https://media.istockphoto.com/id/1472507642/es/foto/cgi-planetas-abstractos-que-descienden-a-la-tierra.jpg?s=612x612&w=0&k=20&c=xE2EWDQK3FpmAe2k9QvIpCsoqAmbWd5yKxZaGu7IBw0=",
+            "Creador 44", "https://media.istockphoto.com/id/1470449208/es/foto/vista-a%C3%A9rea-de-un-complejo-residencial-con-casas-arco-iris-en-la-orilla-izquierda-de-kiev.jpg?s=612x612&w=0&k=20&c=bkMEw2U-jZau2pABKQukFj6BsuqPFRIAbrMHuoybwwQ=",
+            "Creador 45", "https://media.istockphoto.com/id/1325124359/es/foto/%C3%A1rbol-vs-tr%C3%A1fico-concepto-de-entorno.jpg?s=612x612&w=0&k=20&c=m0TkFeDCEahQ7C97AuA0BzstTiwD83sgieJ_QDcGEHI=",
+            "Creador 46", "https://media.istockphoto.com/id/1338726771/es/foto/pajas.jpg?s=612x612&w=0&k=20&c=RXpyx7TZW2RriP9ctvb7DZ2Zaq_K2Y6w8r-aA9YqS1s=",
+            "Creador 47", "https://media.istockphoto.com/id/1339185146/es/vector/fondo-de-arco-iris-abstracto-brillante.jpg?s=612x612&w=0&k=20&c=-q7O8qpdWIveNlHqVRBKEs3tIMluMHuZS9gQvjXzW6U=",
+            "Creador 48", "https://media.istockphoto.com/id/1396715400/es/foto/bandera-del-arco-iris-abstracto-mosaico-lgbtqia-mes-del-orgullo-evento-cultura-tri%C3%A1ngulo.jpg?s=612x612&w=0&k=20&c=WFz8GSa2U1BW2NiIWG1BfQWPhczS07e73dC_gM-tpWU=",
+            "Creador 49", "https://media.istockphoto.com/id/1365849981/es/foto/vista-de-alto-%C3%A1ngulo-de-las-dunas-texturizadas-del-desierto-al-amanecer.jpg?s=612x612&w=0&k=20&c=Deel0ejewe1okVHFOw371EmUlrNyMBRHRSuBL1r5KDk=",
+            "Creador 50", "https://media.istockphoto.com/id/1503943375/es/foto/ni%C3%B1a-vietnamita-con-vestido-blanco-tradicional-de-ao-dai-con-secado-de-incienso-al-aire-libre.jpg?s=612x612&w=0&k=20&c=32glXLQOmrf-bxeVyK520OF8kD5ZEYMkf1vxJwLAMBo=",
+            "Creador 51", "https://media.istockphoto.com/id/1328325993/es/foto/tomates-tostados-cortados-variados-en-bandeja-de-horneado-con-albahaca-y-romero-macro.jpg?s=612x612&w=0&k=20&c=o5Rv9tIHAlkM0qPB31BvHbAGZd8cVdxEcwIMpeyDDTA=",
+            "Creador 52", "https://media.istockphoto.com/id/1755286679/es/foto/cultivo-de-hongos-en-el-bosque.jpg?s=612x612&w=0&k=20&c=sXlEs2-IoL4I6TzOAlOjG5l2HidT1HxIBZyU5ccYTsU=",
+            "Creador 53", "https://media.istockphoto.com/id/1753059830/es/foto/urban-tr%C3%A1fico.jpg?s=612x612&w=0&k=20&c=tNhY9oEQh4hxsnQxHcYS1kDIWMx_FiNuSXsopcKLi_c=",
+            "Creador 54", "https://media.istockphoto.com/id/1276580714/es/foto/renderizado-en-3d-fondo-minimalista-abstracto-marco-cuadrado-de-luz-de-ne%C3%B3n-azul-rosa-con.jpg?s=612x612&w=0&k=20&c=UNage-g9yIyl12k6lU3FRMRocSsiSU_CVDjRM_Qtp5U=",
+            "Creador 55", "https://media.istockphoto.com/id/1416449650/es/foto/paisaje-del-metaverso.jpg?s=612x612&w=0&k=20&c=HV8L3aWHHgAQAoGhdj_UKmdH3fx-8mCziZ2MNyaFufY=",
+            "Creador 56", "https://media.istockphoto.com/id/1965039080/es/foto/vista-a%C3%A9rea-de-la-desembocadura-del-r%C3%ADo-isla-cristina-en-huelva-andaluc%C3%ADa-espa%C3%B1a.jpg?s=612x612&w=0&k=20&c=GTxaMBR9Kw6ejNWVe3aNPD8ulcmEYMBd4fHQb6KH-yg=",
+            "Creador 57", "https://media.istockphoto.com/id/1328325993/es/foto/tomates-tostados-cortados-variados-en-bandeja-de-horneado-con-albahaca-y-romero-macro.jpg?s=612x612&w=0&k=20&c=o5Rv9tIHAlkM0qPB31BvHbAGZd8cVdxEcwIMpeyDDTA=",
+            "Creador 58", "https://media.istockphoto.com/id/1869390184/es/foto/abstract-layered-and-folded-paper-background.jpg?s=612x612&w=0&k=20&c=sZPXSnZg5SN542kr-wwOfmOOpYhBeHcY4x5LIr0_kiQ=",
+            "Creador 59", "https://media.istockphoto.com/id/1483055684/es/vector/arte-del-metaverso.jpg?s=612x612&w=0&k=20&c=binA6e_t9OUcSZJduoU5a7fkGx6Y0AGzUijWsJPFclk=",
+            "Creador 60", "https://media.istockphoto.com/id/1751231741/es/foto/lindo-cachorro-de-foca-mirando-a-la-c%C3%A1mara-mientras-flota-en-la-superficie-azul-clara-del.jpg?s=612x612&w=0&k=20&c=aFj1Utghh7Bj6Go1s8sPS3QyRYyIUIcc1GvBfD3ZArM=",
+            "Creador 61", "https://media.istockphoto.com/id/2133135123/es/foto/t-l-aerial-view-rows-of-trucks-driving-in-harbor-with-trailers.jpg?s=612x612&w=0&k=20&c=BM3pHSR0gJ4PPBkX52_qp9Dkwp-SUmXHb6FX1vCMxCs=",
+            "Creador 62", "https://media.istockphoto.com/id/1869390184/es/foto/abstract-layered-and-folded-paper-background.jpg?s=612x612&w=0&k=20&c=sZPXSnZg5SN542kr-wwOfmOOpYhBeHcY4x5LIr0_kiQ=",
+            "Creador 63", "https://media.istockphoto.com/id/1965039080/es/foto/vista-a%C3%A9rea-de-la-desembocadura-del-r%C3%ADo-isla-cristina-en-huelva-andaluc%C3%ADa-espa%C3%B1a.jpg?s=612x612&w=0&k=20&c=GTxaMBR9Kw6ejNWVe3aNPD8ulcmEYMBd4fHQb6KH-yg=",
+            "Creador 64", "https://media.istockphoto.com/id/1948463768/es/foto/vista-a%C3%A9rea-del-campamento-a-lo-largo-de-la-playa.jpg?s=612x612&w=0&k=20&c=5UL0-PMSRrzRvs1cNF5LHJ8KU8h3ENq3VFyCYFpdx7I=",
+            "Creador 65", "https://media.istockphoto.com/id/1414801614/es/foto/taquillas-escolares-con-art%C3%ADculos-equipos-y-accesorios-para-la-educaci%C3%B3n-vuelta-al-cole.jpg?s=612x612&w=0&k=20&c=pKk-EZCY_iUAfUzwdfF0rp6YaaLVwTKyx5qMHtg-NQM=",
+            "Creador 66", "https://media.istockphoto.com/id/1365849981/es/foto/vista-de-alto-%C3%A1ngulo-de-las-dunas-texturizadas-del-desierto-al-amanecer.jpg?s=612x612&w=0&k=20&c=Deel0ejewe1okVHFOw371EmUlrNyMBRHRSuBL1r5KDk=",
+            "Creador 67", "https://media.istockphoto.com/id/1503943375/es/foto/ni%C3%B1a-vietnamita-con-vestido-blanco-tradicional-de-ao-dai-con-secado-de-incienso-al-aire-libre.jpg?s=612x612&w=0&k=20&c=32glXLQOmrf-bxeVyK520OF8kD5ZEYMkf1vxJwLAMBo=",
+            "Creador 68", "https://media.istockphoto.com/id/1328325993/es/foto/tomates-tostados-cortados-variados-en-bandeja-de-horneado-con-albahaca-y-romero-macro.jpg?s=612x612&w=0&k=20&c=o5Rv9tIHAlkM0qPB31BvHbAGZd8cVdxEcwIMpeyDDTA=",
+        ];
+
+        let counter = 0;
+        const photoQuantity = 4;
+
+        function cargarContenido() {
+            const container = document.getElementById('container');
+            // Simulamos la carga de más contenido (divs)
+            for (let i = counter; i < counter + photoQuantity; i++) {
+                const item = container.appendChild(document.createElement("div"));
+                item.className = 'item';
+                const itemBox = item.appendChild(document.createElement("div"));
+                itemBox.className = 'itemBox';
+                const itemImg = itemBox.appendChild(document.createElement("img"));
+                itemImg.className = 'itemImg';
+                // Establecemos el src y el title basados en arrayNameImg
+                itemImg.src = arrayNameImg[i * 2 + 1];
+                itemImg.title = arrayNameImg[i * 2];
+            }
+            counter += photoQuantity;
+        }
+
+        window.addEventListener('scroll', function () {
+            const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = window.scrollY;
+            if (Math.ceil(scrolled) === scrollable) {
+                cargarContenido(); // Llamamos a la función para cargar más contenido
+            }
+        });
+
+        // // Función para simular la carga de más contenido
+        // const counter = 0;
+        // const photoQuantity = 4;
+        // function cargarContenido() {
+        //     const container = document.getElementById('container');
+        //     // Simulamos la carga de más contenido (divs)
+        //     for (let i = counter; i < counter + photoQuantity; i++) {
+        //         const item = container.appendChild(document.createElement("div"));
+        //         item.className = 'item';
+        //         const itemBox = item.appendChild(document.createElement("div"));
+        //         itemBox.className = 'itemBox';
+        //         const itemImg = itemBox.appendChild(document.createElement("img"));
+        //         itemImg.className = 'itemImg';
+        //         itemImg.src = "https://media.istockphoto.com/id/1470745452/es/foto/abriendo-la-puerta-a-la-libertad.jpg?s=612x612&w=0&k=20&c=4EVGyjgQN5Of2KpBhG-Lt7sYsH2HXKN1QNpwTMiaPPw=";
+        //     };
+        //     counter += photoQuantity;
+        // }
+
+        // // Evento de scroll para detectar cuando se llega al final de la página
+        // window.addEventListener('scroll', function () {
+        //     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        //     const scrolled = window.scrollY;
+        //     if (Math.ceil(scrolled) === scrollable) {
+        //         cargarContenido(); // Llamamos a la función para cargar más contenido
+        //     };
+        // });
+
+
+
+
+        // FUNCIÓN PARA HACER blur() Y focus() AL HACER :hover SOBRE ALGÚN ELEMENTO
+        function focusBlur(element) {
+            element.addEventListener("mouseenter", function () {
+                element.focus();
+            });
+            element.addEventListener("mouseleave", function () {
+                element.blur();
+            });
+        };
+
+    </script>
+</body>
+
+</html>
