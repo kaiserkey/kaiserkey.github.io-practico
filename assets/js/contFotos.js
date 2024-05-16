@@ -23,7 +23,7 @@ function crearColumnas() {
 }
 }
 
-// --------carga las imagenes y los boptones---------
+// --------carga las imagenes y los botones---------
 
 function cargarContenido() {
     let fin = 4 * columna;
