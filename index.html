@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Fotasa</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +20,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Padyakke+Expanded+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tilt+Prism&display=swap"
         rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/contFotos.css">
     <style>
         * {
             box-sizing: border-box;
@@ -40,9 +43,9 @@
             --color__2: hsl(0, 0%, 92%);
             --borderRadius__20px: 20px;
             --scrollbar__display: none;
-            --width__item: 25%;
+            /* --width__item: 25%; */
             --width__sliderBox: 0%;
-        }
+        } 
 
         /* @media screen and (min-width: 1024px) {
         } */
@@ -494,53 +497,6 @@
         }
 
 
-        .container {
-            position: relative;
-            top: calc(var(--height__header) + var(--height__contentPrimary));
-            width: 100%;
-            height: auto;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-
-        .item {
-            width: var(--width__item);
-            height: 30vh;
-            margin: 10px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .itemBox {
-            width: 96%;
-            height: 96%;
-            border: 1px solid black;
-            border-radius: 5px;
-            border: 4px solid var(--color__1);
-            overflow: hidden;
-            object-fit: cover;
-            position: relative;
-        }
-
-        .itemBox:hover {
-            width: 97%;
-            height: 98%;
-            border: 4px solid var(--color__1);
-        }
-
-        .itemBox img {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-
-        }
-
-
-
-
 
 
         footer {
@@ -615,7 +571,7 @@
     <!-- <div id="user__getIntoBox">
         <div id="user_logInBox"></div>
     </div> -->
-
+    <main>
     <div id="contentPrimary">
         <section id="contentHighlight__box">
             <p id="contentHighlight__title">
@@ -635,7 +591,7 @@
             <div id="contentCommunity__body"></div>
         </section>
     </div>
-    <div class="container" id="container">
+        <div class="contenedor-fotos"></div>
     </div>
 
 
@@ -682,9 +638,7 @@
         <div id="footerInf__terms"></div>
         <div id="footerInf__policy"></div>
     </div> -->
-
-
-
+    </main>
     <footer>
         <div id="footer_boxAbout">
             <a href="#" id="footer_linkAbout">Acerca de Fotasa</a>
@@ -892,104 +846,32 @@
 
 
         // ARRAY USADO PARA ALMACENAR LAS IMAGENES DEL CONTENIDO QUE SE CARGA DINAMICAMENTE AL HACER SCROLL
-        const arrayNameImg = [
-            "Creador 01", "https://media.istockphoto.com/id/1470745452/es/foto/abriendo-la-puerta-a-la-libertad.jpg?s=612x612&w=0&k=20&c=4EVGyjgQN5Of2KpBhG-Lt7sYsH2HXKN1QNpwTMiaPPw=",
-            "Creador 02", "https://media.istockphoto.com/id/1483055684/es/vector/arte-del-metaverso.jpg?s=612x612&w=0&k=20&c=binA6e_t9OUcSZJduoU5a7fkGx6Y0AGzUijWsJPFclk=",
-            "Creador 03", "https://media.istockphoto.com/id/1751231741/es/foto/lindo-cachorro-de-foca-mirando-a-la-c%C3%A1mara-mientras-flota-en-la-superficie-azul-clara-del.jpg?s=612x612&w=0&k=20&c=aFj1Utghh7Bj6Go1s8sPS3QyRYyIUIcc1GvBfD3ZArM=",
-            "Creador 04", "https://media.istockphoto.com/id/2133135123/es/foto/t-l-aerial-view-rows-of-trucks-driving-in-harbor-with-trailers.jpg?s=612x612&w=0&k=20&c=BM3pHSR0gJ4PPBkX52_qp9Dkwp-SUmXHb6FX1vCMxCs=",
-            "Creador 05", "https://media.istockphoto.com/id/1869390184/es/foto/abstract-layered-and-folded-paper-background.jpg?s=612x612&w=0&k=20&c=sZPXSnZg5SN542kr-wwOfmOOpYhBeHcY4x5LIr0_kiQ=",
-            "Creador 06", "https://media.istockphoto.com/id/1965039080/es/foto/vista-a%C3%A9rea-de-la-desembocadura-del-r%C3%ADo-isla-cristina-en-huelva-andaluc%C3%ADa-espa%C3%B1a.jpg?s=612x612&w=0&k=20&c=GTxaMBR9Kw6ejNWVe3aNPD8ulcmEYMBd4fHQb6KH-yg=",
-            "Creador 07", "https://media.istockphoto.com/id/1948463768/es/foto/vista-a%C3%A9rea-del-campamento-a-lo-largo-de-la-playa.jpg?s=612x612&w=0&k=20&c=5UL0-PMSRrzRvs1cNF5LHJ8KU8h3ENq3VFyCYFpdx7I=",
-            "Creador 08", "https://media.istockphoto.com/id/1414801614/es/foto/taquillas-escolares-con-art%C3%ADculos-equipos-y-accesorios-para-la-educaci%C3%B3n-vuelta-al-cole.jpg?s=612x612&w=0&k=20&c=pKk-EZCY_iUAfUzwdfF0rp6YaaLVwTKyx5qMHtg-NQM=",
-            "Creador 09", "https://media.istockphoto.com/id/1365849981/es/foto/vista-de-alto-%C3%A1ngulo-de-las-dunas-texturizadas-del-desierto-al-amanecer.jpg?s=612x612&w=0&k=20&c=Deel0ejewe1okVHFOw371EmUlrNyMBRHRSuBL1r5KDk=",
-            "Creador 10", "https://media.istockphoto.com/id/1503943375/es/foto/ni%C3%B1a-vietnamita-con-vestido-blanco-tradicional-de-ao-dai-con-secado-de-incienso-al-aire-libre.jpg?s=612x612&w=0&k=20&c=32glXLQOmrf-bxeVyK520OF8kD5ZEYMkf1vxJwLAMBo=",
-            "Creador 11", "https://media.istockphoto.com/id/1328325993/es/foto/tomates-tostados-cortados-variados-en-bandeja-de-horneado-con-albahaca-y-romero-macro.jpg?s=612x612&w=0&k=20&c=o5Rv9tIHAlkM0qPB31BvHbAGZd8cVdxEcwIMpeyDDTA=",
-            "Creador 12", "https://media.istockphoto.com/id/1755286679/es/foto/cultivo-de-hongos-en-el-bosque.jpg?s=612x612&w=0&k=20&c=sXlEs2-IoL4I6TzOAlOjG5l2HidT1HxIBZyU5ccYTsU=",
-            "Creador 13", "https://media.istockphoto.com/id/1753059830/es/foto/urban-tr%C3%A1fico.jpg?s=612x612&w=0&k=20&c=tNhY9oEQh4hxsnQxHcYS1kDIWMx_FiNuSXsopcKLi_c=",
-            "Creador 14", "https://media.istockphoto.com/id/1276580714/es/foto/renderizado-en-3d-fondo-minimalista-abstracto-marco-cuadrado-de-luz-de-ne%C3%B3n-azul-rosa-con.jpg?s=612x612&w=0&k=20&c=UNage-g9yIyl12k6lU3FRMRocSsiSU_CVDjRM_Qtp5U=",
-            "Creador 15", "https://media.istockphoto.com/id/1416449650/es/foto/paisaje-del-metaverso.jpg?s=612x612&w=0&k=20&c=HV8L3aWHHgAQAoGhdj_UKmdH3fx-8mCziZ2MNyaFufY=",
-            "Creador 16", "https://media.istockphoto.com/id/1965039080/es/foto/vista-a%C3%A9rea-de-la-desembocadura-del-r%C3%ADo-isla-cristina-en-huelva-andaluc%C3%ADa-espa%C3%B1a.jpg?s=612x612&w=0&k=20&c=GTxaMBR9Kw6ejNWVe3aNPD8ulcmEYMBd4fHQb6KH-yg=",
-            "Creador 17", "https://media.istockphoto.com/id/1328325993/es/foto/tomates-tostados-cortados-variados-en-bandeja-de-horneado-con-albahaca-y-romero-macro.jpg?s=612x612&w=0&k=20&c=o5Rv9tIHAlkM0qPB31BvHbAGZd8cVdxEcwIMpeyDDTA=",
-            "Creador 18", "https://media.istockphoto.com/id/1869390184/es/foto/abstract-layered-and-folded-paper-background.jpg?s=612x612&w=0&k=20&c=sZPXSnZg5SN542kr-wwOfmOOpYhBeHcY4x5LIr0_kiQ=",
-            "Creador 19", "https://media.istockphoto.com/id/1459757171/es/foto/mujer-mirando-pasar-el-metro.jpg?s=612x612&w=0&k=20&c=3UTDxNOffiKVZkLsedGiNB92tSklSv1L2ddvnbURH-o=",
-            "Creador 20", "https://media.istockphoto.com/id/1464561797/es/foto/unidad-procesadora-de-inteligencia-artificial-potente-componente-quantum-ai-en-placa-base-pcb.jpg?s=612x612&w=0&k=20&c=gbS2eMWy6WTrMMZBrRAgAx_UYgrEitK5DrnWbfnM5SE=",
-            "Creador 21", "https://media.istockphoto.com/id/1472507642/es/foto/cgi-planetas-abstractos-que-descienden-a-la-tierra.jpg?s=612x612&w=0&k=20&c=xE2EWDQK3FpmAe2k9QvIpCsoqAmbWd5yKxZaGu7IBw0=",
-            "Creador 22", "https://media.istockphoto.com/id/1470449208/es/foto/vista-a%C3%A9rea-de-un-complejo-residencial-con-casas-arco-iris-en-la-orilla-izquierda-de-kiev.jpg?s=612x612&w=0&k=20&c=bkMEw2U-jZau2pABKQukFj6BsuqPFRIAbrMHuoybwwQ=",
-            "Creador 23", "https://media.istockphoto.com/id/1325124359/es/foto/%C3%A1rbol-vs-tr%C3%A1fico-concepto-de-entorno.jpg?s=612x612&w=0&k=20&c=m0TkFeDCEahQ7C97AuA0BzstTiwD83sgieJ_QDcGEHI=",
-            "Creador 24", "https://media.istockphoto.com/id/1338726771/es/foto/pajas.jpg?s=612x612&w=0&k=20&c=RXpyx7TZW2RriP9ctvb7DZ2Zaq_K2Y6w8r-aA9YqS1s=",
-            "Creador 25", "https://media.istockphoto.com/id/1339185146/es/vector/fondo-de-arco-iris-abstracto-brillante.jpg?s=612x612&w=0&k=20&c=-q7O8qpdWIveNlHqVRBKEs3tIMluMHuZS9gQvjXzW6U=",
-            "Creador 26", "https://media.istockphoto.com/id/1396715400/es/foto/bandera-del-arco-iris-abstracto-mosaico-lgbtqia-mes-del-orgullo-evento-cultura-tri%C3%A1ngulo.jpg?s=612x612&w=0&k=20&c=WFz8GSa2U1BW2NiIWG1BfQWPhczS07e73dC_gM-tpWU=",
-            "Creador 27", "https://media.istockphoto.com/id/1365849981/es/foto/vista-de-alto-%C3%A1ngulo-de-las-dunas-texturizadas-del-desierto-al-amanecer.jpg?s=612x612&w=0&k=20&c=Deel0ejewe1okVHFOw371EmUlrNyMBRHRSuBL1r5KDk=",
-            "Creador 28", "https://media.istockphoto.com/id/1503943375/es/foto/ni%C3%B1a-vietnamita-con-vestido-blanco-tradicional-de-ao-dai-con-secado-de-incienso-al-aire-libre.jpg?s=612x612&w=0&k=20&c=32glXLQOmrf-bxeVyK520OF8kD5ZEYMkf1vxJwLAMBo=",
-            "Creador 29", "https://media.istockphoto.com/id/1328325993/es/foto/tomates-tostados-cortados-variados-en-bandeja-de-horneado-con-albahaca-y-romero-macro.jpg?s=612x612&w=0&k=20&c=o5Rv9tIHAlkM0qPB31BvHbAGZd8cVdxEcwIMpeyDDTA=",
-            "Creador 30", "https://media.istockphoto.com/id/1755286679/es/foto/cultivo-de-hongos-en-el-bosque.jpg?s=612x612&w=0&k=20&c=sXlEs2-IoL4I6TzOAlOjG5l2HidT1HxIBZyU5ccYTsU=",
-            "Creador 31", "https://media.istockphoto.com/id/1753059830/es/foto/urban-tr%C3%A1fico.jpg?s=612x612&w=0&k=20&c=tNhY9oEQh4hxsnQxHcYS1kDIWMx_FiNuSXsopcKLi_c=",
-            "Creador 32", "https://media.istockphoto.com/id/1276580714/es/foto/renderizado-en-3d-fondo-minimalista-abstracto-marco-cuadrado-de-luz-de-ne%C3%B3n-azul-rosa-con.jpg?s=612x612&w=0&k=20&c=UNage-g9yIyl12k6lU3FRMRocSsiSU_CVDjRM_Qtp5U=",
-            "Creador 33", "https://media.istockphoto.com/id/1416449650/es/foto/paisaje-del-metaverso.jpg?s=612x612&w=0&k=20&c=HV8L3aWHHgAQAoGhdj_UKmdH3fx-8mCziZ2MNyaFufY=",
-            "Creador 34", "https://media.istockphoto.com/id/1965039080/es/foto/vista-a%C3%A9rea-de-la-desembocadura-del-r%C3%ADo-isla-cristina-en-huelva-andaluc%C3%ADa-espa%C3%B1a.jpg?s=612x612&w=0&k=20&c=GTxaMBR9Kw6ejNWVe3aNPD8ulcmEYMBd4fHQb6KH-yg=",
-            "Creador 35", "https://media.istockphoto.com/id/1328325993/es/foto/tomates-tostados-cortados-variados-en-bandeja-de-horneado-con-albahaca-y-romero-macro.jpg?s=612x612&w=0&k=20&c=o5Rv9tIHAlkM0qPB31BvHbAGZd8cVdxEcwIMpeyDDTA=",
-            "Creador 36", "https://media.istockphoto.com/id/1869390184/es/foto/abstract-layered-and-folded-paper-background.jpg?s=612x612&w=0&k=20&c=sZPXSnZg5SN542kr-wwOfmOOpYhBeHcY4x5LIr0_kiQ=",
-            "Creador 37", "https://media.istockphoto.com/id/1459757171/es/foto/mujer-mirando-pasar-el-metro.jpg?s=612x612&w=0&k=20&c=3UTDxNOffiKVZkLsedGiNB92tSklSv1L2ddvnbURH-o=",
-            "Creador 38", "https://media.istockphoto.com/id/1464561797/es/foto/unidad-procesadora-de-inteligencia-artificial-potente-componente-quantum-ai-en-placa-base-pcb.jpg?s=612x612&w=0&k=20&c=gbS2eMWy6WTrMMZBrRAgAx_UYgrEitK5DrnWbfnM5SE=",
-            "Creador 39", "https://media.istockphoto.com/id/1472507642/es/foto/cgi-planetas-abstractos-que-descienden-a-la-tierra.jpg?s=612x612&w=0&k=20&c=xE2EWDQK3FpmAe2k9QvIpCsoqAmbWd5yKxZaGu7IBw0=",
-            "Creador 40", "https://media.istockphoto.com/id/1470449208/es/foto/vista-a%C3%A9rea-de-un-complejo-residencial-con-casas-arco-iris-en-la-orilla-izquierda-de-kiev.jpg?s=612x612&w=0&k=20&c=bkMEw2U-jZau2pABKQukFj6BsuqPFRIAbrMHuoybwwQ=",
-            "Creador 41", "https://media.istockphoto.com/id/1325124359/es/foto/%C3%A1rbol-vs-tr%C3%A1fico-concepto-de-entorno.jpg?s=612x612&w=0&k=20&c=m0TkFeDCEahQ7C97AuA0BzstTiwD83sgieJ_QDcGEHI=",
-            "Creador 42", "https://media.istockphoto.com/id/1338726771/es/foto/pajas.jpg?s=612x612&w=0&k=20&c=RXpyx7TZW2RriP9ctvb7DZ2Zaq_K2Y6w8r-aA9YqS1s=",
-            "Creador 43", "https://media.istockphoto.com/id/1472507642/es/foto/cgi-planetas-abstractos-que-descienden-a-la-tierra.jpg?s=612x612&w=0&k=20&c=xE2EWDQK3FpmAe2k9QvIpCsoqAmbWd5yKxZaGu7IBw0=",
-            "Creador 44", "https://media.istockphoto.com/id/1470449208/es/foto/vista-a%C3%A9rea-de-un-complejo-residencial-con-casas-arco-iris-en-la-orilla-izquierda-de-kiev.jpg?s=612x612&w=0&k=20&c=bkMEw2U-jZau2pABKQukFj6BsuqPFRIAbrMHuoybwwQ=",
-            "Creador 45", "https://media.istockphoto.com/id/1325124359/es/foto/%C3%A1rbol-vs-tr%C3%A1fico-concepto-de-entorno.jpg?s=612x612&w=0&k=20&c=m0TkFeDCEahQ7C97AuA0BzstTiwD83sgieJ_QDcGEHI=",
-            "Creador 46", "https://media.istockphoto.com/id/1338726771/es/foto/pajas.jpg?s=612x612&w=0&k=20&c=RXpyx7TZW2RriP9ctvb7DZ2Zaq_K2Y6w8r-aA9YqS1s=",
-            "Creador 47", "https://media.istockphoto.com/id/1339185146/es/vector/fondo-de-arco-iris-abstracto-brillante.jpg?s=612x612&w=0&k=20&c=-q7O8qpdWIveNlHqVRBKEs3tIMluMHuZS9gQvjXzW6U=",
-            "Creador 48", "https://media.istockphoto.com/id/1396715400/es/foto/bandera-del-arco-iris-abstracto-mosaico-lgbtqia-mes-del-orgullo-evento-cultura-tri%C3%A1ngulo.jpg?s=612x612&w=0&k=20&c=WFz8GSa2U1BW2NiIWG1BfQWPhczS07e73dC_gM-tpWU=",
-            "Creador 49", "https://media.istockphoto.com/id/1365849981/es/foto/vista-de-alto-%C3%A1ngulo-de-las-dunas-texturizadas-del-desierto-al-amanecer.jpg?s=612x612&w=0&k=20&c=Deel0ejewe1okVHFOw371EmUlrNyMBRHRSuBL1r5KDk=",
-            "Creador 50", "https://media.istockphoto.com/id/1503943375/es/foto/ni%C3%B1a-vietnamita-con-vestido-blanco-tradicional-de-ao-dai-con-secado-de-incienso-al-aire-libre.jpg?s=612x612&w=0&k=20&c=32glXLQOmrf-bxeVyK520OF8kD5ZEYMkf1vxJwLAMBo=",
-            "Creador 51", "https://media.istockphoto.com/id/1328325993/es/foto/tomates-tostados-cortados-variados-en-bandeja-de-horneado-con-albahaca-y-romero-macro.jpg?s=612x612&w=0&k=20&c=o5Rv9tIHAlkM0qPB31BvHbAGZd8cVdxEcwIMpeyDDTA=",
-            "Creador 52", "https://media.istockphoto.com/id/1755286679/es/foto/cultivo-de-hongos-en-el-bosque.jpg?s=612x612&w=0&k=20&c=sXlEs2-IoL4I6TzOAlOjG5l2HidT1HxIBZyU5ccYTsU=",
-            "Creador 53", "https://media.istockphoto.com/id/1753059830/es/foto/urban-tr%C3%A1fico.jpg?s=612x612&w=0&k=20&c=tNhY9oEQh4hxsnQxHcYS1kDIWMx_FiNuSXsopcKLi_c=",
-            "Creador 54", "https://media.istockphoto.com/id/1276580714/es/foto/renderizado-en-3d-fondo-minimalista-abstracto-marco-cuadrado-de-luz-de-ne%C3%B3n-azul-rosa-con.jpg?s=612x612&w=0&k=20&c=UNage-g9yIyl12k6lU3FRMRocSsiSU_CVDjRM_Qtp5U=",
-            "Creador 55", "https://media.istockphoto.com/id/1416449650/es/foto/paisaje-del-metaverso.jpg?s=612x612&w=0&k=20&c=HV8L3aWHHgAQAoGhdj_UKmdH3fx-8mCziZ2MNyaFufY=",
-            "Creador 56", "https://media.istockphoto.com/id/1965039080/es/foto/vista-a%C3%A9rea-de-la-desembocadura-del-r%C3%ADo-isla-cristina-en-huelva-andaluc%C3%ADa-espa%C3%B1a.jpg?s=612x612&w=0&k=20&c=GTxaMBR9Kw6ejNWVe3aNPD8ulcmEYMBd4fHQb6KH-yg=",
-            "Creador 57", "https://media.istockphoto.com/id/1328325993/es/foto/tomates-tostados-cortados-variados-en-bandeja-de-horneado-con-albahaca-y-romero-macro.jpg?s=612x612&w=0&k=20&c=o5Rv9tIHAlkM0qPB31BvHbAGZd8cVdxEcwIMpeyDDTA=",
-            "Creador 58", "https://media.istockphoto.com/id/1869390184/es/foto/abstract-layered-and-folded-paper-background.jpg?s=612x612&w=0&k=20&c=sZPXSnZg5SN542kr-wwOfmOOpYhBeHcY4x5LIr0_kiQ=",
-            "Creador 59", "https://media.istockphoto.com/id/1483055684/es/vector/arte-del-metaverso.jpg?s=612x612&w=0&k=20&c=binA6e_t9OUcSZJduoU5a7fkGx6Y0AGzUijWsJPFclk=",
-            "Creador 60", "https://media.istockphoto.com/id/1751231741/es/foto/lindo-cachorro-de-foca-mirando-a-la-c%C3%A1mara-mientras-flota-en-la-superficie-azul-clara-del.jpg?s=612x612&w=0&k=20&c=aFj1Utghh7Bj6Go1s8sPS3QyRYyIUIcc1GvBfD3ZArM=",
-            "Creador 61", "https://media.istockphoto.com/id/2133135123/es/foto/t-l-aerial-view-rows-of-trucks-driving-in-harbor-with-trailers.jpg?s=612x612&w=0&k=20&c=BM3pHSR0gJ4PPBkX52_qp9Dkwp-SUmXHb6FX1vCMxCs=",
-            "Creador 62", "https://media.istockphoto.com/id/1869390184/es/foto/abstract-layered-and-folded-paper-background.jpg?s=612x612&w=0&k=20&c=sZPXSnZg5SN542kr-wwOfmOOpYhBeHcY4x5LIr0_kiQ=",
-            "Creador 63", "https://media.istockphoto.com/id/1965039080/es/foto/vista-a%C3%A9rea-de-la-desembocadura-del-r%C3%ADo-isla-cristina-en-huelva-andaluc%C3%ADa-espa%C3%B1a.jpg?s=612x612&w=0&k=20&c=GTxaMBR9Kw6ejNWVe3aNPD8ulcmEYMBd4fHQb6KH-yg=",
-            "Creador 64", "https://media.istockphoto.com/id/1948463768/es/foto/vista-a%C3%A9rea-del-campamento-a-lo-largo-de-la-playa.jpg?s=612x612&w=0&k=20&c=5UL0-PMSRrzRvs1cNF5LHJ8KU8h3ENq3VFyCYFpdx7I=",
-            "Creador 65", "https://media.istockphoto.com/id/1414801614/es/foto/taquillas-escolares-con-art%C3%ADculos-equipos-y-accesorios-para-la-educaci%C3%B3n-vuelta-al-cole.jpg?s=612x612&w=0&k=20&c=pKk-EZCY_iUAfUzwdfF0rp6YaaLVwTKyx5qMHtg-NQM=",
-            "Creador 66", "https://media.istockphoto.com/id/1365849981/es/foto/vista-de-alto-%C3%A1ngulo-de-las-dunas-texturizadas-del-desierto-al-amanecer.jpg?s=612x612&w=0&k=20&c=Deel0ejewe1okVHFOw371EmUlrNyMBRHRSuBL1r5KDk=",
-            "Creador 67", "https://media.istockphoto.com/id/1503943375/es/foto/ni%C3%B1a-vietnamita-con-vestido-blanco-tradicional-de-ao-dai-con-secado-de-incienso-al-aire-libre.jpg?s=612x612&w=0&k=20&c=32glXLQOmrf-bxeVyK520OF8kD5ZEYMkf1vxJwLAMBo=",
-            "Creador 68", "https://media.istockphoto.com/id/1328325993/es/foto/tomates-tostados-cortados-variados-en-bandeja-de-horneado-con-albahaca-y-romero-macro.jpg?s=612x612&w=0&k=20&c=o5Rv9tIHAlkM0qPB31BvHbAGZd8cVdxEcwIMpeyDDTA=",
-        ];
+       
 
-        let counter = 0;
-        const photoQuantity = 4;
+        // let counter = 0;
+        // const photoQuantity = 4;
 
-        function cargarContenido() {
-            const container = document.getElementById('container');
-            // Simulamos la carga de más contenido (divs)
-            for (let i = counter; i < counter + photoQuantity; i++) {
-                const item = container.appendChild(document.createElement("div"));
-                item.className = 'item';
-                const itemBox = item.appendChild(document.createElement("div"));
-                itemBox.className = 'itemBox';
-                const itemImg = itemBox.appendChild(document.createElement("img"));
-                itemImg.className = 'itemImg';
-                // Establecemos el src y el title basados en arrayNameImg
-                itemImg.src = arrayNameImg[i * 2 + 1];
-                itemImg.title = arrayNameImg[i * 2];
-            }
-            counter += photoQuantity;
-        }
+        // function cargarContenido() {
+        //     const container = document.getElementById('container');
+        //     // Simulamos la carga de más contenido (divs)
+        //     for (let i = counter; i < counter + photoQuantity; i++) {
+        //         const item = container.appendChild(document.createElement("div"));
+        //         item.className = 'item';
+        //         const itemBox = item.appendChild(document.createElement("div"));
+        //         itemBox.className = 'itemBox';
+        //         const itemImg = itemBox.appendChild(document.createElement("img"));
+        //         itemImg.className = 'itemImg';
+        //         // Establecemos el src y el title basados en arrayNameImg
+        //         itemImg.src = arrayNameImg[i * 2 + 1];
+        //         itemImg.title = arrayNameImg[i * 2];
+        //     }
+        //     counter += photoQuantity;
+        // }
 
-        window.addEventListener('scroll', function () {
-            const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-            const scrolled = window.scrollY;
-            if (Math.ceil(scrolled) === scrollable) {
-                cargarContenido(); // Llamamos a la función para cargar más contenido
-            }
-        });
+
+
+
+
 
         // // Función para simular la carga de más contenido
         // const counter = 0;
@@ -1032,6 +914,8 @@
         };
 
     </script>
+
+    <script src="./assets/js/conFotos.js"></script>
 </body>
 
 </html>
