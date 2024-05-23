@@ -1,0 +1,22 @@
+/* Seccion acerca de */
+.about-section {
+    padding: 60px 0;
+}
+.about-section:nth-child(even) {
+    background-color: #f8f9fa;
+}
+.about-section .row {
+    align-items: center;
+}
+.about-section img {
+    max-width: 100%;
+    height: auto;
+}
+.about-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+.about-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+}

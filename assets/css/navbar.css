@@ -1,0 +1,54 @@
+/* Adjust header name styles */
+#header__name p {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+}
+#header__name img {
+    height: 1em;
+    width: auto;
+    margin: 0 0.2em;
+}
+
+/* Style buttons */
+button[id^="user__btn"] {
+    letter-spacing: 1px;
+    background-color: var(--color__1);
+    box-shadow: 0 0 1px 1px var(--color__1);
+    border-radius: var(--borderRadius__20px);
+    transition: box-shadow 200ms, font-size 100ms, letter-spacing 100ms;
+}
+
+/* Estilos para ajustar tamaños de fuente responsivos */
+@media (max-width: 576px) {
+    .navbar-brand p {
+        font-size: 1rem;
+    }
+
+    .navbar-collapse #header__user button {
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 991px) {
+    .navbar-brand p {
+        font-size: 1.25rem;
+    }
+
+    .navbar-collapse #header__user button {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-brand p {
+        font-size: 1.5rem;
+    }
+
+    .navbar-collapse #header__user button {
+        font-size: 1rem;
+    }
+} 
