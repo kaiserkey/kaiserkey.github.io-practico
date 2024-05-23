@@ -1,12 +1,14 @@
-/* Adjust header name styles */
-#header__name p {
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
+#header__name {
+    display: inline-block; 
+    cursor: pointer;
+    text-decoration: none; 
     font-weight: 800;
-    font-family: "Montserrat", sans-serif;
-    margin: 0;
 }
+
+#header__name p {
+    margin: 0; 
+}
+
 #header__name img {
     height: 1em;
     width: auto;
