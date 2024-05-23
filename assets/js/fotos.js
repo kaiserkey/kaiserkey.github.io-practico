@@ -89,5 +89,5 @@ function MasContenido() {
 crearColumnas();
 cargarContenido();
 
-window.addEventListener("scroll", MasContenido);
+//window.addEventListener("scroll", MasContenido);
 window.onresize = recargar;
