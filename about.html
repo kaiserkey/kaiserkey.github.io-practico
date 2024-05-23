@@ -3,60 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Fotasa - Acerca de</title>
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Padyakke+Expanded+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tilt+Prism&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Padyakke+Expanded+One&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Padyakke+Expanded+One&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Tilt+Prism&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Padyakke+Expanded+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tilt+Prism&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/main.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="./assets/favicon/site.webmanifest">
-    <link rel="mask-icon" href="./assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+        <!-- CSS -->
+        <link rel="stylesheet" href="./assets/css/main.css">
+        <link rel="stylesheet" href="./assets/css/fotos.css">
+        <link rel="stylesheet" href="./assets/css/footer.css">
+        <link rel="stylesheet" href="./assets/css/navbar.css">
+        <link rel="stylesheet" href="./assets/css/acercade.css">
+        <!-- BOOTSTRAP 5 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <!-- BOOTSTRAP ICONS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <!-- FAVICON -->
+        <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+        <link rel="manifest" href="./assets/favicon/site.webmanifest">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+    
+        <!-- FONTS -->
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <nav class="navbar bg-body-tertiary">
-                <div class="container-fluid" id="header__name">
-                    <a class="navbar-brand" href="./index.html">
-                        <span id="header__name">
-                            <p class="m-0">F<span>o</span>tasa</p>
-                        </span>
-                    </a>
+    <header class="container-fluid align-items-center">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="./index.html" id="header__name">
+                    <p class="m-0">F<img src="./assets/img/logo2.png" alt="logo">tasa</p>
+                </a>
+                <div class="w-75">
+                    <form class="d-flex search-bar-container align-items-center"> 
+                        <div class="input-group search-bar">
+                            <span class="input-group-text" id="basic-addon1"><i class='bx bx-search'></i></span>
+                            <input type="text" class="form-control" placeholder="Busca por creador, etiqueta, comunidades, etc" aria-label="Search" aria-describedby="basic-addon1">
+                            <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                        </div>
+                    </form>
                 </div>
-            </nav>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <form class="d-flex mx-auto w-50">
-                    <div class="input-group">
-                        <span class="input-group-text" id="basic-addon1"><i class='bx bx-search'></i></span>
-                        <input type="text" class="form-control" placeholder="Busca por creador, etiqueta, comunidades, etc" aria-label="Search" aria-describedby="basic-addon1">
-                        <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav"> 
+                    <div id="header__user" class="d-flex flex-column flex-lg-row flex-xl-row align-items-end m-3">
+                        <a href="./about.html"><button id="user__btn" class="btn btn-outline-secondary me-lg-3 ms-lg-2 mb-2 mb-lg-0">About</button></a> 
+                        <a href="./login.html"><button id="user__btn" class="btn btn-outline-secondary me-lg-3 ms-lg-2 mb-2 mb-lg-0">Login</button></a> 
+                        <a href="./signin.html"><button id="user__btn" class="btn btn-outline-secondary ms-lg-2">Sigin</button></a>
                     </div>
-                </form>
+                </div>
             </div>
-            <div id="header__user" class="d-flex">
-                <a href="./about.html"><button id="user__btnLogin" class="btn btn-outline-secondary me-2">Acerca de Nosotros</button></a>
-                <a href="./login.html"><button id="user__btnLogin" class="btn btn-outline-secondary me-2">Iniciar sesión</button></a>
-                <a href="./sigin.html"><button id="user__btnSignin" class="btn btn-outline-secondary">Crear usuario</button></a>
-            </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <div class="container-fluid mt-5">
         <div class="about-section">

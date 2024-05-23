@@ -20,3 +20,44 @@
     font-size: 1rem;
     line-height: 1.6;
 }
+
+/* Estilo para la animación de la imagen en pantallas grandes */
+@media (min-width: 992px) {
+    .img-thumbnail {
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+        -webkit-transition: transform 0.5s ease, box-shadow 0.5s ease;
+        -moz-transition: transform 0.5s ease, box-shadow 0.5s ease;
+        -ms-transition: transform 0.5s ease, box-shadow 0.5s ease;
+        -o-transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+    /* Estilo para la animación al pasar el ratón sobre la imagen en pantallas grandes */
+    .img-thumbnail:hover {
+        transform: rotate(8deg);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        -webkit-transform: rotate(8deg);
+        -moz-transform: rotate(8deg);
+        -ms-transform: rotate(8deg);
+        -o-transform: rotate(8deg);
+}
+}
+
+/* Estilo para el desplazamiento y rotación en dispositivos móviles */
+@media (max-width: 991px) {
+    .img-thumbnail:hover {
+        animation: rotateMobile 1s ease-in-out;
+        -webkit-animation: rotateMobile 1s ease-in-out;
+}
+
+    @keyframes rotateMobile {
+        0% {
+            transform: rotate(0deg);
+        }
+        50% {
+            transform: rotate(10deg);
+        }
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+}
