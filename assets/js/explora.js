@@ -61,13 +61,6 @@ for (let i = 0; i < sectionsQuantity; i++) {
     };
 };
 
-
-
-
-
-
-
-
 // BLOQUE PARA CREAR EL SLIDER DE LO MÁS DESTACADO DEL MES
 const sliderBox__section = document.querySelectorAll(".sliderBox__section");
 const sliderBox__sectionFinal = sliderBox__section[sliderBox__section.length - 1];
