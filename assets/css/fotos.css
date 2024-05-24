@@ -3,11 +3,12 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content:center;
+    justify-content: center;
+    margin-bottom: 150px; /* Asegurar que no cubra el footer */
 }
 
 .contenedor-columna {
-    margin:0 0.2em; 
+    margin: 0 0.2em;
 }
 
 .contenedor-post {
@@ -16,7 +17,7 @@
     animation: fotos linear both;
     animation-timeline: view();
     animation-range: entry 1% cover 40%;
-   }
+}
 
 .imagen {
     max-width: 230px;
@@ -27,13 +28,18 @@
     visibility: hidden;
 }
 
-.guardar {
+.guardar,
+.compartir,
+.menu {
     position: absolute;
-    background-color: hsl(0, 0%, 92%);;
+    background-color: hsl(0, 0%, 92%);
     border: none;
+    border-radius: 50%;
+}
+
+.guardar {
     width: 5em;
     height: 3em;
-    border-radius: 4em;
     top: 1em;
     right: 2em;
 }
@@ -42,15 +48,11 @@
     font-size: 1.5em;
 }
 
-.compartir { 
-    position: absolute;
-    background-color: hsl(0, 0%, 92%);;
-    border: none;
+.compartir {
     width: 2.5em;
     height: 2.5em;
-    border-radius: 3em;
     bottom: 1em;
-    right: 4.5em;    
+    right: 4.5em;
 }
 
 .icon-compartir, .icon-menu {
@@ -58,24 +60,20 @@
 }
 
 .menu {
-    position: absolute;
-    background-color:hsl(0, 0%, 92%);;
-    border: none;
     width: 2.5em;
     height: 2.5em;
-    border-radius: 3em;
     bottom: 1em;
     right: 1.5em;
-  }
-
-  .contenedor-post:hover .contenedor-imagen {
-    filter:blur(2px);
-    opacity: 90%;
-    filter: grayscale(70%);
 }
 
-.contenedor-imagen:hover+.contenedor-botones, .contenedor-botones:hover {
-    visibility: visible; 
+.contenedor-post:hover .contenedor-imagen {
+    filter: grayscale(70%) blur(2px);
+    opacity: 0.9;
+}
+
+.contenedor-imagen:hover + .contenedor-botones,
+.contenedor-botones:hover {
+    visibility: visible;
 }
 
 .guardar:hover {
@@ -85,12 +83,10 @@
 @keyframes fotos {
     from {
         opacity: 0;
-        translate: 0 20px;
-        scale: 0.7;
+        transform: translate(0, 20px) scale(0.7);
     }
     to {
         opacity: 1;
-        translate: 0 0;
-        scale: 1;
-    }   
+        transform: translate(0, 0) scale(1);
+    }
 }

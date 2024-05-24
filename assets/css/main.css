@@ -20,11 +20,17 @@
     --width__sliderBox: 0%;
 }
 
-body {
+/* body {
     width: 100%;
     height: auto;
     position: relative;
     z-index: 4;
+} */
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 #contentPrimary {
