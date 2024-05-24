@@ -2,7 +2,11 @@ const imagenes = [
     "img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg",
     "img6.jpg", "img7.jpg", "img8.jpg", "img9.jpg", "img10.jpg",
     "img11.jpg", "img12.jpg", "img13.jpg", "img14.jpg", "img15.jpg",
-    "img16.jpg", "img17.jpg", "img18.jpg", "img19.jpg", "img20.jpg"
+    "img16.jpg", "img17.jpg", "img18.jpg", "img19.jpg", "img20.jpg",
+    "img21.jpg", "img22.jpg", "img23.jpg", "img24.jpg", "img25.jpg",
+    "img26.jpg", "img27.jpg", "img28.jpg", "img29.jpg", "img30.jpg",
+    "img31.jpg", "img32.jpg", "img33.jpg", "img34.jpg", "img35.jpg",
+    "img36.jpg", "img37.jpg", "img38.jpg", "img39.jpg", "img40.jpg"
 ];
 
 const contenedor = document.querySelector(".contenedor-fotos");
@@ -11,6 +15,15 @@ const frag = document.createDocumentFragment();
 let ventana = document.documentElement.clientWidth;
 let columna = Math.trunc(ventana / 250);
 const divCo = [];
+
+// Función para barajar un array utilizando el algoritmo de Fisher-Yates
+function mezclarArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
 
 function crearColumnas() {
     for (let c = 0; c < columna; c++) {
@@ -78,6 +91,7 @@ function recargar() {
     contenedor.innerHTML = '';
     frag.innerHTML = '';
     crearColumnas();
+    mezclarArray(imagenes); // Baraja las imágenes antes de cargar el contenido
     cargarContenido();
 }
 
@@ -88,7 +102,9 @@ function MasContenido() {
     }
 }
 
+// Inicializar
 crearColumnas();
+mezclarArray(imagenes); // Baraja las imágenes antes de cargar el contenido
 cargarContenido();
 window.onresize = recargar;
 window.onscroll = MasContenido;
