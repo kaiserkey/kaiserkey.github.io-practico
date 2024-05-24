@@ -217,33 +217,33 @@ const arrayNameImg = [
     "Creador 68", "https://media.istockphoto.com/id/1328325993/es/foto/tomates-tostados-cortados-variados-en-bandeja-de-horneado-con-albahaca-y-romero-macro.jpg?s=612x612&w=0&k=20&c=o5Rv9tIHAlkM0qPB31BvHbAGZd8cVdxEcwIMpeyDDTA=",
 ];
 
-let counter = 0;
-const photoQuantity = 4;
+// let counter = 0;
+// const photoQuantity = 4;
 
-function cargarContenido() {
-    const container = document.getElementById('container');
-    // Simulamos la carga de más contenido (divs)
-    for (let i = counter; i < counter + photoQuantity; i++) {
-        const item = container.appendChild(document.createElement("div"));
-        item.className = 'item';
-        const itemBox = item.appendChild(document.createElement("div"));
-        itemBox.className = 'itemBox';
-        const itemImg = itemBox.appendChild(document.createElement("img"));
-        itemImg.className = 'itemImg';
-        // Establecemos el src y el title basados en arrayNameImg
-        itemImg.src = arrayNameImg[i * 2 + 1];
-        itemImg.title = arrayNameImg[i * 2];
-    }
-    counter += photoQuantity;
-}
+// function cargarContenido() {
+//     const container = document.getElementById('container');
+//     // Simulamos la carga de más contenido (divs)
+//     for (let i = counter; i < counter + photoQuantity; i++) {
+//         const item = container.appendChild(document.createElement("div"));
+//         item.className = 'item';
+//         const itemBox = item.appendChild(document.createElement("div"));
+//         itemBox.className = 'itemBox';
+//         const itemImg = itemBox.appendChild(document.createElement("img"));
+//         itemImg.className = 'itemImg';
+//         // Establecemos el src y el title basados en arrayNameImg
+//         itemImg.src = arrayNameImg[i * 2 + 1];
+//         itemImg.title = arrayNameImg[i * 2];
+//     }
+//     counter += photoQuantity;
+// }
 
-window.addEventListener('scroll', function () {
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    const scrolled = window.scrollY;
-    if (Math.ceil(scrolled) === scrollable) {
-        cargarContenido(); // Llamamos a la función para cargar más contenido
-    }
-});
+// window.addEventListener('scroll', function () {
+//     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+//     const scrolled = window.scrollY;
+//     if (Math.ceil(scrolled) === scrollable) {
+//         cargarContenido(); // Llamamos a la función para cargar más contenido
+//     }
+// });
 
 // FUNCIÓN PARA HACER blur() Y focus() AL HACER :hover SOBRE ALGÚN ELEMENTO
 function focusBlur(element) {

@@ -12,7 +12,7 @@
 
 .contenedor-post {
     position: relative;
-    margin: 0.1em 0;
+    margin: 0.5em 0.05em;
     animation: fotos linear both;
     animation-timeline: view();
     animation-range: entry 1% cover 40%;

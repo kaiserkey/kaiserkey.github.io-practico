@@ -1,13 +1,8 @@
 const imagenes = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg",
     "img6.jpg", "img7.jpg", "img8.jpg", "img9.jpg", "img10.jpg",
     "img11.jpg", "img12.jpg", "img13.jpg", "img14.jpg", "img15.jpg",
-    "img16.jpg", "img17.jpg", "img18.jpg", "img19.jpg", "img20.jpg",
-    "img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg",
-    "img6.jpg", "img7.jpg", "img8.jpg", "img9.jpg", "img10.jpg",
-    "img11.jpg", "img12.jpg", "img13.jpg", "img14.jpg", "img15.jpg",
     "img16.jpg", "img17.jpg", "img18.jpg", "img19.jpg", "img20.jpg"]
 
-const imagenesUnicas = Array.from(new Set(imagenes)); // Elimina las imágenes duplicadas
 const contenedor = document.querySelector(".contenedor-fotos");
 const frag = document.createDocumentFragment();
 
@@ -25,7 +20,7 @@ function crearColumnas() {
 
 // Carga las imágenes y los botones
 function cargarContenido() {
-    let fin = Math.min(imagenesUnicas.length, 4 * columna); // Límite final teniendo en cuenta la cantidad de imágenes disponibles
+    let fin = 3 * columna; // Límite final teniendo en cuenta la cantidad de imágenes disponibles
     for (let c = 0; c < columna; c++) {
         for (let i = c; i < fin; i += columna) {
             const divCP = document.createElement("div");
@@ -34,7 +29,10 @@ function cargarContenido() {
             divCI.classList.add("contenedor-imagen");
             const img = document.createElement("img");
             img.classList.add("imagen");
-            img.src = "./assets/img/" + imagenesUnicas[i];
+            img.src = "./assets/img/" + imagenes[i];
+
+            const link = document.createElement("a");
+            link.href = "./foto.html?imagen=" + imagenes[i];
 
             const divCB = document.createElement("div");
             divCB.classList.add("contenedor-botones");
@@ -59,13 +57,15 @@ function cargarContenido() {
             btnguardar.append(iconG);
             btncompartir.append(iconC);
             btnmenu.append(iconM);
-            divCI.append(img);
+            link.append(img);
+            divCI.append(link);
             divCB.append(btnguardar, btncompartir, btnmenu);
             divCP.append(divCI, divCB);
             divCo[c].append(divCP);
         };
         frag.append(divCo[c]);
     };
+    console.log("hola")
     contenedor.append(frag);
 };
 
