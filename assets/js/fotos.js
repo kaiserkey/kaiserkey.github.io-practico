@@ -48,7 +48,7 @@ function cargarContenido(limite = 3 * columna) {
                 img.src = "./assets/img/" + imagenes[i];
 
                 const link = document.createElement("a");
-                link.href = "./foto.html?imagen=" + imagenes[i];
+                link.href = "./info.html?imagen=" + imagenes[i];
 
                 const divCB = document.createElement("div");
                 divCB.classList.add("contenedor-botones");
