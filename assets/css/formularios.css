@@ -58,7 +58,7 @@ main.master1 {
     text-align: center;
     margin-bottom: 2%;
     width: 100%; 
-    color: #4caf50;
+    color: black;
 }
 
 .group-form,
@@ -179,7 +179,7 @@ main.master1 {
 }
 
 .form1 h2{
-    color: #4caf50;
+    color: black;
 }
 
 .form1 .group-formSigin label {

@@ -1,12 +1,12 @@
 const imagenes = [
-    "img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg",
-    "img6.jpg", "img7.jpg", "img8.jpg", "img9.jpg", "img10.jpg",
-    "img11.jpg", "img12.jpg", "img13.jpg", "img14.jpg", "img15.jpg",
-    "img16.jpg", "img17.jpg", "img18.jpg", "img19.jpg", "img20.jpg",
-    "img21.jpg", "img22.jpg", "img23.jpg", "img24.jpg", "img25.jpg",
-    "img26.jpg", "img27.jpg", "img28.jpg", "img29.jpg", "img30.jpg",
-    "img31.jpg", "img32.jpg", "img33.jpg", "img34.jpg", "img35.jpg",
-    "img36.jpg", "img37.jpg", "img38.jpg", "img39.jpg", "img40.jpg"
+    "img1.webp", "img2.webp", "img3.webp", "img4.webp", "img5.webp",
+    "img6.webp", "img7.webp", "img8.webp", "img9.webp", "img10.webp",
+    "img11.webp", "img12.webp", "img13.webp", "img14.webp", "img15.webp",
+    "img16.webp", "img17.webp", "img18.webp", "img19.webp", "img20.webp",
+    "img21.webp", "img22.webp", "img23.webp", "img24.webp", "img25.webp",
+    "img26.webp", "img27.webp", "img28.webp", "img29.webp", "img30.webp",
+    "img31.webp", "img32.webp", "img33.webp", "img34.webp", "img35.webp",
+    "img36.webp", "img37.webp", "img38.webp", "img39.webp", "img40.webp"
 ];
 
 const contenedor = document.querySelector(".contenedor-fotos");
