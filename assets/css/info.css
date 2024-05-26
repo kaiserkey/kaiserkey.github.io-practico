@@ -1,0 +1,138 @@
+
+
+.contenedor{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+   
+}
+.contenedor_foto {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px 5px lightgray;
+
+}
+
+.contenedor_imagen{
+    max-width:500px;
+    box-sizing: border-box;
+}
+
+.imagen{
+    border-radius: 30px 0 0 30px;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+.contenedor_info {
+    width: 500px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 16px;
+}
+
+.contenedor_menu, .contenedor_link, .contenedor_titulo, .contenedor_descripcion,
+.contenedor_perfil {
+    display: flex;
+    box-sizing:border-box;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    align-content: center;
+    height: 60px;
+    padding: 5px;
+} 
+
+.contenedor_menu button{
+    background-color:transparent;
+    height: 45px;
+    border-style: none;
+    padding: 5px;
+}
+
+.contenedor_menu .guardar{
+    background-color: darkgrey;
+    height: auto;
+    border-radius: 30px;
+}
+
+
+
+.contenedor_menu p, .contenedor_link p, .contenedor_titulo p, .contenedor_descripcion p,
+.contenedor_perfil p, .contenedor_comentarios p {
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.bi {
+    color: darkgrey;
+}
+
+.contenedor_perfil .bi {
+    font-size: 48px;
+    padding-right: 20px;
+}
+
+.comentarios p{
+    display: block;
+    padding-left: 20px;
+}
+
+.comentarios p .bi {
+    font-size: 30px;
+    padding-right: 20px;
+}
+
+.comentar {
+    padding-top: 10px;
+}
+
+.contenedor_input{
+    padding-top: 5px;
+    margin-bottom: 10px;
+}
+
+.contenedor_input .bi {
+    font-size: 40px;
+    padding-right: 10px;
+}
+
+.contenedor_input {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.contenedor_input input {
+    flex-grow: 2;
+    height: 35px;
+    border: 2px solid  lightgray ;
+    border-radius: 25px;
+}
+
+.contenedor_input input:focus {
+    border: 2px solid  lightgray;
+}
+.contenedor_input button {
+    background-color:transparent;
+    border-style: none;
+    padding: 5px;
+}
+
+.contenedor_input button .bi {
+    font-size: 25px;
+    padding: 5px;
+}
+
+
+@media (max-width: 1000px) {
+    .contenedor_foto {
+        max-width: 500px;
+    }
+    .imagen{
+        border-radius: 30px 30px 0 0;
+    }
+}
