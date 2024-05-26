@@ -19,7 +19,9 @@ main.master1 {
     font-size: 20px;
     color: brown;
     margin: auto;
+    margin-top: 3%;
     text-align: center;
+    max-width: 350px;
 }
 
 .form1 {
@@ -29,9 +31,12 @@ main.master1 {
     margin-top: 100px; /* Espacio superior */
     padding: 50px; /* Espacio interno */
     padding-bottom: 100px; /* Espacio al final del formulario */
-    background-color: #f0f0f0; /* Color de fondo más bonito */
+    background-color: #f0f0f0; 
     backdrop-filter: blur(5px);
     border-radius: 30px;
+    -webkit-box-shadow: 10px 10px 43px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 43px -6px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 43px -6px rgba(0,0,0,0.75);
 }
 
 /* DATOS CONTACTO */
@@ -52,13 +57,14 @@ main.master1 {
 .form1 h1 {
     text-align: center;
     margin-bottom: 2%;
-    width: 100%; /* Ancho completo */
+    width: 100%; 
+    color: #4caf50;
 }
 
 .group-form,
 .group-form2 {
     padding-top: 2%;
-    width: 100%; /* Ancho completo */
+    width: 100%; 
 }
 
 .group-form2 {
@@ -72,28 +78,36 @@ main.master1 {
     font-size: 17px;
     margin-top: 1%;
     border-color: transparent;
+    cursor: pointer;
 }
 
-.terminosStyle label {
+.group-form2 .contactoStyle h4{
+    font-size: 16px;
+}
+
+.terminosStyle  {
+    width: 100%;
     align-items: center;
-    padding-left: 5%;
+    margin-top: 10%;
 }
-
+.group-form2 .terminosStyle input{
+    cursor: pointer;
+}
 .botones {
     height: auto;
     width: 100%;
     padding-top: 4%; /* Espaciado superior */
-    display: flex; /* Cambiado a flex */
-    justify-content: center; /* Centrado horizontal */
+    display: flex; 
+    justify-content: center; 
 }
 
 .group-form2 button:hover {
-    background-color: #ffffff; /* Cambiado a un color más claro */
-    color: #666666; /* Cambiado a un color más oscuro para el texto */
+    background-color: #ffffff; 
+    color: #666666; 
 }
 
 .group-form2 button {
-    background-color: #4caf50; /* Color de fondo para resaltar */
+    background-color: #4caf50; 
     border-radius: 10px;
     font-size: 20px;
     height: 50px;
@@ -114,11 +128,11 @@ main.master1 {
 
 .form1.login-form {
     width: fit-content;
-    margin: 0 auto; /* Centro horizontalmente */
-    margin-top: 100px; /* Espacio superior */
-    padding: 50px; /* Espacio interno */
-    padding-bottom: 100px; /* Espacio al final del formulario */
-    background-color: #f0f0f0; /* Color de fondo más bonito */
+    margin: 0 auto; 
+    margin-top: 100px; 
+    padding: 50px; 
+    padding-bottom: 100px; 
+    background-color: #f0f0f0; 
     backdrop-filter: blur(5px);
     border-radius: 30px;
 }
@@ -126,32 +140,32 @@ main.master1 {
 .form1.login-form h2 {
     text-align: center;
     margin-bottom: 20px;
-    margin-top: 0; /* Reducción del espacio superior */
+    margin-top: 0; 
 }
 
 .form1.login-form .group-formSigin {
-    margin-bottom: 20px; /* Espaciado inferior */
+    margin-bottom: 20px; 
 }
 
 .form1.login-form .group-formSigin label {
-    display: block; /* Mostrar etiquetas en una línea diferente */
-    margin-bottom: 5px; /* Espaciado inferior */
+    display: block; 
+    margin-bottom: 5px; 
 }
 
 .form1.login-form .group-formSigin input[type="email"],
 .form1.login-form .group-formSigin input[type="text"] {
-    width: 100%; /* Ancho completo */
+    width: 100%; 
     height: 40px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 5px; /* Espaciado interno */
+    padding: 5px; 
     font-size: 16px;
-    box-sizing: border-box; /* Incluir bordes en el tamaño total */
+    box-sizing: border-box; 
 }
 
 .form1.login-form .botones button {
-    margin: 0 10px; /* Espacio entre botones */
-    padding: 10px 20px; /* Espaciado interno */
+    margin: 0 10px; 
+    padding: 10px 20px; 
     font-size: 16px;
     border: none;
     border-radius: 5px;
@@ -162,4 +176,64 @@ main.master1 {
 .form1.login-form .botones button:hover {
     background-color: #4caf50;
     color: #fff;
+}
+
+.form1 h2{
+    color: #4caf50;
+}
+
+.form1 .group-formSigin label {
+    margin-top: 10%;
+}
+
+.form1 .group-formSigin input{
+    width: 100%;
+    height: 50px;
+
+}
+
+.form1 .group-form2 .botones{
+    margin-top: 10%;
+}
+
+
+
+/* MEDIA QUERY PARA EL TAMAÑO DE 730PX O MENOS */
+
+
+@media (max-width:730px){
+
+    .form1 input {
+        display: grid;
+    }
+    
+    .form1 {
+        font-family: "Montserrat", sans-serif;
+        width: 350px;
+    }
+
+    .group-form2 h4{
+        font-size: 15px;
+        color: #494949;
+    }
+
+    .group-form2 .terminosStyle h4 {
+        margin-top: 15%;
+        color: #383838;
+    }
+
+    .group-form2 .terminosStyle label{
+        align-items: center;
+        padding-left: 5%;
+        margin-top: 3%;
+        
+    }
+
+    .group-form2 .terminosStyle input {
+        width: 10px;
+        display: inline;
+        cursor: pointer;
+    }
+
+
 }
