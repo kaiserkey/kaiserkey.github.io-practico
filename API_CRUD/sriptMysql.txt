@@ -1,0 +1,20 @@
+script para crear SCHEMA
+
+CREATE SCHEMA `usuariosdb` DEFAULT CHARACTER SET utf8 ;
+
+script para crear tabla
+
+CREATE TABLE `usuariosdb`.`usuarios` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
+  `apellido` VARCHAR(45) NOT NULL,
+  `mail` VARCHAR(45) NOT NULL,
+  `telefono` INT NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `formaContacto` VARCHAR(45) NOT NULL,
+  `createdAt` DATETIME NULL,
+  `updatedAt` DATETIME NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
