@@ -8,27 +8,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const fetchUsuarios = async () => {
     try {
       const respuesta = await axios.get(`http://localhost:3030/usuarios/`);
-    //   console.log(respuesta.data);
+   
       const usuarios = respuesta.data;
       //limpiar la tabla antes de agregar los nuevos datos
       TablaUsuarios.innerHTML = "";
-      /* Iterar sobre los datos y agregar cada posteo a la tabla */
-      let n = 0;
+      /* Iterar sobre los datos y agregar cada usuario a la tabla */
+      // let n = 0;
       usuarios.forEach((usuario) => {
         // creo una nueva fila
      
         const fila = document.createElement("tr");
         //Crear celdas
 
-        const celdaN = document.createElement("td");
+        // const celdaN = document.createElement("td");
         const celdaNombre = document.createElement("td");
         const celdaApellido = document.createElement("td");
         const celdaEmail = document.createElement("td");
         const celdaAccionesEditar = document.createElement("td");
         const celdaAccionesEliminar = document.createElement("td");
         // asignar el contenido de las celdas
-        n = n + 1;
-        celdaN.textContent = n;
+        // n = n + 1;
+        // celdaN.textContent = n;
 
         celdaNombre.textContent = usuario.nombre;
         celdaApellido.textContent = usuario.apellido;
@@ -40,12 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
         botonEliminar.className = "btn btn-outline-secondary"
         botonEliminar.addEventListener("click",()=>{borrarUsuario(usuario.id)})
 
-        // crear el boton para editar un posteo
+        // crear el boton para editar un usuario
         const botonEditar = document.createElement("button");
         botonEditar.textContent = "Editar"
         botonEditar.className = "btn btn-outline-secondary"
         botonEditar.addEventListener("click", ()=>{
-        // Redirigir a la pagina de edicion  con el ID del post en la url
+        // Redirigir a la pagina de edicion  con el ID del usuario en la url
         window.location.href = `edit.html?id=${usuario.id}`
         })
         // agregar los botones a la celda de acciones
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         celdaAccionesEditar.appendChild(botonEditar);
 
         // agregamos las celdas a la fila
-        fila.appendChild(celdaN);
+        // fila.appendChild(celdaN);
         fila.appendChild(celdaNombre);
         fila.appendChild(celdaApellido);
         fila.appendChild(celdaEmail);
@@ -64,10 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
         TablaUsuarios.appendChild(fila);
       });
     } catch (error) {
-      console.error(`Error al obtener los post : ${error}`);
+      console.error(`Error al obtener los usuarios : ${error}`);
     }
   };
-  // funcion para eliminar unposteo
+  // funcion para eliminar un usuario
   const borrarUsuario = async (id)=>{
       try {
           await axios.delete (`http://localhost:3030/usuarios/${id}`)
@@ -76,10 +76,10 @@ document.addEventListener("DOMContentLoaded", () => {
           //Redirigir a la pagina principal despues de actualizar
           window.location.href = "index.html";
       } catch (error) {
-          console.error (`Error al eliminar el post : ${error}`)
+          console.error (`Error al eliminar el usuario : ${error}`)
       }
   }
 
-  //llamar a la funcion para obtener y mostrar los posteos cuando Carga la pagina
+  //llamar a la funcion para obtener y mostrar los usuarios cuando Carga la pagina
   fetchUsuarios();
 });

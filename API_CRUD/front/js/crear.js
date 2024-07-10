@@ -1,9 +1,8 @@
 
 /* DOMContentLoaded */
 document.addEventListener("DOMContentLoaded",()=>{
-    /* Obtener el body de la tabla donde se mostraran los posteos */
-    // const bodyTablaPosteos = document.querySelector("#form1");
-    /* Obtener el formulario para crear un nuevo posteo */
+   
+    /* Obtener el formulario para crear un nuevo usuario */
     const formCrearUsuario = document.querySelector("#form");
 
     formCrearUsuario.addEventListener("submit", async function (evento){
@@ -25,7 +24,7 @@ document.addEventListener("DOMContentLoaded",()=>{
             //Redirigir a la pagina principal despues de actualizar
             window.location.href = "index.html";
         } catch (error) {
-            console.error (`Error al postear: ${error}`)
+            console.error (`Error al crear usuario: ${error}`)
             console.log("usuario no creado")
         }
     

@@ -4,11 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //obtener los parametros de la URL
   const parametrosURL = new URLSearchParams(window.location.search);
-  // obtener el id de post que queremos editar
+  // obtener el id del usuario que queremos editar
   //http://127.0.0.1:5501/CLASES/Clase33/FRONT/edit.html?id=1
   const iDUsuario = parametrosURL.get("id");
 
-  // funcion para oobtener los datos del post por Id
+  // funcion para oobtener los datos del usuario por Id
   const traerUusuario = async (id) => {
     try {
       const respuesta = await axios.get(`http://localhost:3030/usuarios/${id}`);
@@ -23,17 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector("#passwordform").value = usuario.password;
       document.querySelector("#contacto").value = usuario.formaContacto;
     } catch (error) {
-      console.error(`Error al obtener el posteo :`, error);
+      console.error(`Error al obtener el usuario :`, error);
     }
   };
 
-  //llamar a la funcion para obtener el post actual
+  //llamar a la funcion para obtener el usuario actual
 
   if (iDUsuario) {
     traerUusuario(iDUsuario);
   }
 
-  //funcion para actuallizar el posteo
+  //funcion para actuallizar el usuario
 
   formEditar.addEventListener("submit", async function (evento) {
     evento.preventDefault();
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
       //Redirigir a la pagina principal despues de actualizar
       window.location.href = "index.html";
     } catch (error) {
-      console.error(`Error al actualizar el posteo :`, error);
+      console.error(`Error al actualizar el usuario :`, error);
     }
   });
 });
